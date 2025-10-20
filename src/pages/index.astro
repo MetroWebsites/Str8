@@ -1,23 +1,365 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import SimpleHeader from "@/components/SimpleHeader.astro";
-import SimpleHero from "@/components/SimpleHero.astro";
-import SimpleFeatures from "@/components/SimpleFeatures.astro";
-import SimpleAbout from "@/components/SimpleAbout.astro";
-import SimpleTestimonials from "@/components/SimpleTestimonials.astro";
-import SimpleContact from "@/components/SimpleContact.astro";
-import SimpleFooter from "@/components/SimpleFooter.astro";
 ---
 
 <BaseLayout
   title="Str8Positive - Transform Your Life Through Positive Thinking"
   description="Discover the power of positive thinking and transform your life with our proven techniques, coaching, and supportive community."
 >
-  <SimpleHeader />
-  <SimpleHero />
-  <SimpleFeatures />
-  <SimpleAbout />
-  <SimpleTestimonials />
-  <SimpleContact />
-  <SimpleFooter />
+  <!-- Header Section -->
+  <header class="sticky top-0 z-50 w-full bg-background/90 backdrop-blur-sm border-b border-border">
+    <div class="container flex justify-between items-center h-16">
+      <a href="/" class="flex items-center gap-2">
+        <div class="bg-primary/20 p-1 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        </div>
+        <span class="font-bold text-xl">Str8<span class="text-primary">Positive</span></span>
+      </a>
+      
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#about" class="text-sm hover:text-primary transition-colors">About</a>
+        <a href="#services" class="text-sm hover:text-primary transition-colors">Services</a>
+        <a href="#testimonials" class="text-sm hover:text-primary transition-colors">Testimonials</a>
+        <a href="#contact" class="text-sm bg-primary hover:bg-primary/90 text-white py-2 px-4 rounded-md">Contact</a>
+      </nav>
+      
+      <button class="md:hidden p-2">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-20 md:py-32">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center">
+        <div class="inline-flex items-center px-3 py-1 text-sm rounded-full bg-primary/10 text-primary mb-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          Transform Your Mindset
+        </div>
+        
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          Unlock Your <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Positive</span> Potential
+        </h1>
+        
+        <p class="text-muted-foreground text-lg md:text-xl mb-8">
+          Discover the power of positive thinking and transform your life with our proven techniques, coaching, and supportive community.
+        </p>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#contact" class="bg-primary hover:bg-primary/90 text-white py-3 px-6 rounded-md">
+            Get Started
+          </a>
+          <a href="#about" class="bg-transparent border border-primary/50 hover:border-primary py-3 px-6 rounded-md">
+            Learn More
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-20 bg-card/50">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Our <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Services</span>
+        </h2>
+        <p class="text-muted-foreground">
+          We offer comprehensive services designed to help you cultivate a positive mindset
+          and transform every aspect of your life.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Service 1 -->
+        <div class="bg-card p-6 rounded-lg border border-border">
+          <div class="bg-primary/10 p-3 rounded-lg w-fit mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Mindset Coaching</h3>
+          <p class="text-muted-foreground text-sm">One-on-one sessions with certified positive thinking coaches to rewire thought patterns.</p>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="bg-card p-6 rounded-lg border border-border">
+          <div class="bg-secondary/10 p-3 rounded-lg w-fit mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-secondary"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"/><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"/><path d="M14 3a2 2 0 0 1 2 2v5.5a2.5 2.5 0 0 1 5 0V12a9 9 0 0 1-9 9h0a9 9 0 0 1-9-9v-1.5a2.5 2.5 0 0 1 5 0V9a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v2.5"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Wellness Programs</h3>
+          <p class="text-muted-foreground text-sm">Holistic approaches to mental and emotional wellbeing through positive practices.</p>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="bg-card p-6 rounded-lg border border-border">
+          <div class="bg-accent/10 p-3 rounded-lg w-fit mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-accent"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Community Support</h3>
+          <p class="text-muted-foreground text-sm">Join our community of positive thinkers for encouragement, accountability, and friendship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-20">
+    <div class="container">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6">
+            About <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Str8Positive</span>
+          </h2>
+          
+          <p class="text-muted-foreground mb-6">
+            Str8Positive was founded with a simple mission: to help people transform their lives
+            through the power of positive thinking. Our founder experienced firsthand how
+            changing thought patterns can lead to extraordinary life changes.
+          </p>
+          
+          <ul class="space-y-3">
+            <li class="flex items-start gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mt-1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Transform negative thinking into positive energy</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mt-1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Develop resilience and mental strength</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary mt-1"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span>Create a personalized positive thinking practice</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div class="bg-card rounded-lg p-8">
+          <div class="text-center space-y-6">
+            <div class="bg-primary/10 p-4 rounded-full w-20 h-20 mx-auto flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M7 11h10"/><rect width="18" height="8" x="3" y="11" rx="4"/></svg>
+            </div>
+            
+            <div>
+              <h3 class="text-xl font-bold mb-2">Our Mission</h3>
+              <p class="text-muted-foreground text-sm">
+                To empower individuals to transform their mindset and achieve their fullest potential
+                through proven positive thinking techniques.
+              </p>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-4 mt-8">
+              <div class="bg-muted p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-primary">10k+</div>
+                <div class="text-xs text-muted-foreground">Students</div>
+              </div>
+              <div class="bg-muted p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-secondary">24</div>
+                <div class="text-xs text-muted-foreground">Coaches</div>
+              </div>
+              <div class="bg-muted p-4 rounded-lg text-center">
+                <div class="text-2xl font-bold text-accent">8</div>
+                <div class="text-xs text-muted-foreground">Years</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="py-20 bg-card/50">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center mb-16">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Success <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Stories</span>
+        </h2>
+        <p class="text-muted-foreground">
+          Real people, real transformations. Discover how positive thinking has changed lives.
+        </p>
+      </div>
+      
+      <div class="grid md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="bg-card p-6 rounded-lg border border-border">
+          <div class="flex space-x-1 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          
+          <blockquote class="text-sm mb-6">
+            "Str8Positive transformed my outlook on life. Their coaching helped me overcome anxiety and build confidence in my abilities."
+          </blockquote>
+          
+          <div class="border-t pt-4">
+            <p class="font-bold text-sm">Sarah J.</p>
+            <p class="text-xs text-muted-foreground">Marketing Executive</p>
+          </div>
+        </div>
+        
+        <!-- Testimonial 2 -->
+        <div class="bg-card p-6 rounded-lg border border-border">
+          <div class="flex space-x-1 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          
+          <blockquote class="text-sm mb-6">
+            "The community aspect of Str8Positive was a game-changer for me. Having support from others on the same journey made all the difference."
+          </blockquote>
+          
+          <div class="border-t pt-4">
+            <p class="font-bold text-sm">Michael T.</p>
+            <p class="text-xs text-muted-foreground">Small Business Owner</p>
+          </div>
+        </div>
+        
+        <!-- Testimonial 3 -->
+        <div class="bg-card p-6 rounded-lg border border-border">
+          <div class="flex space-x-1 mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          
+          <blockquote class="text-sm mb-6">
+            "I was skeptical at first, but the practical techniques they taught me have helped me manage stress and find joy in everyday moments."
+          </blockquote>
+          
+          <div class="border-t pt-4">
+            <p class="font-bold text-sm">Elena K.</p>
+            <p class="text-xs text-muted-foreground">Healthcare Professional</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20">
+    <div class="container">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4">
+          Get in <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Touch</span>
+        </h2>
+        <p class="text-muted-foreground">
+          Have questions? Ready to transform your mindset? Fill out the form below and we'll get back to you shortly.
+        </p>
+      </div>
+      
+      <div class="max-w-md mx-auto">
+        <form class="space-y-4">
+          <div>
+            <label for="name" class="block text-sm font-medium mb-1">Name</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              class="w-full p-3 bg-muted border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50"
+              placeholder="Your name"
+            />
+          </div>
+          
+          <div>
+            <label for="email" class="block text-sm font-medium mb-1">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              class="w-full p-3 bg-muted border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50"
+              placeholder="your.email@example.com"
+            />
+          </div>
+          
+          <div>
+            <label for="message" class="block text-sm font-medium mb-1">Message</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="4" 
+              required 
+              class="w-full p-3 bg-muted border border-border rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50"
+              placeholder="How can we help you with positive thinking?"
+            ></textarea>
+          </div>
+          
+          <input type="hidden" name="form_name" value="Positive Thinking Inquiry" />
+          
+          <button 
+            type="submit" 
+            class="w-full bg-primary hover:bg-primary/90 text-white p-3 rounded-md"
+          >
+            Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="py-12 border-t border-border">
+    <div class="container">
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div class="lg:col-span-2">
+          <div class="flex items-center gap-2 mb-4">
+            <div class="bg-primary/20 p-1 rounded-full">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            </div>
+            <span class="font-bold">Str8<span class="text-primary">Positive</span></span>
+          </div>
+          
+          <p class="text-muted-foreground text-sm mb-4 max-w-sm">
+            Empowering individuals to transform their lives through the power of positive thinking since 2015.
+          </p>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4 text-sm uppercase tracking-wider">Links</h3>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            <li><a href="#about" class="hover:text-primary">About</a></li>
+            <li><a href="#services" class="hover:text-primary">Services</a></li>
+            <li><a href="#testimonials" class="hover:text-primary">Testimonials</a></li>
+            <li><a href="#contact" class="hover:text-primary">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h3 class="font-semibold mb-4 text-sm uppercase tracking-wider">Legal</h3>
+          <ul class="space-y-2 text-sm text-muted-foreground">
+            <li><a href="#" class="hover:text-primary">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-primary">Terms of Service</a></li>
+            <li><a href="#" class="hover:text-primary">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="border-t border-border pt-6 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-sm text-muted-foreground mb-4 md:mb-0">
+          &copy; {new Date().getFullYear()} Str8Positive. All rights reserved.
+        </p>
+        
+        <p class="text-sm text-muted-foreground">
+          Built with
+          <a
+            href="https://new.website"
+            target="_blank"
+            rel="noreferrer"
+            class="text-primary hover:underline"
+          >
+            new.website
+          </a>
+        </p>
+      </div>
+    </div>
+  </footer>
 </BaseLayout>
