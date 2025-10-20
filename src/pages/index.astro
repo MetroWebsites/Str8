@@ -1,38 +1,23 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ContactForm from '@/components/ContactForm';
-import { buttonVariants } from "@/components/ui/button";
+import SimpleHeader from "@/components/SimpleHeader.astro";
+import SimpleHero from "@/components/SimpleHero.astro";
+import SimpleFeatures from "@/components/SimpleFeatures.astro";
+import SimpleAbout from "@/components/SimpleAbout.astro";
+import SimpleTestimonials from "@/components/SimpleTestimonials.astro";
+import SimpleContact from "@/components/SimpleContact.astro";
+import SimpleFooter from "@/components/SimpleFooter.astro";
 ---
 
 <BaseLayout
   title="Str8Positive - Transform Your Life Through Positive Thinking"
   description="Discover the power of positive thinking and transform your life with our proven techniques, coaching, and supportive community."
 >
-  <section class="container min-h-screen grid items-center gap-6 pt-6 pb-8 md:py-10">
-    <div class="flex max-w-[980px] flex-col items-start gap-2">
-      <h1
-        class="text-4xl font-extrabold tracking-tighter text-foreground md:text-5xl"
-      >
-        Str8Positive <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Thinking</span>
-      </h1>
-      <p class="text-muted-foreground max-w-[700px] text-lg">
-        Discover the power of positive thinking and transform your life with our proven techniques, coaching, and supportive community.
-      </p>
-    </div>
-    <div class="flex gap-4">
-      <a
-        href="#contact"
-        class={buttonVariants({ size: "lg" })}
-      >
-        Get Started
-      </a>
-      <a
-        href="#about"
-        class={buttonVariants({ variant: "outline", size: "lg" })}
-      >
-        Learn More
-      </a>
-    </div>
-    <ContactForm client:load />
-  </section>
+  <SimpleHeader />
+  <SimpleHero />
+  <SimpleFeatures />
+  <SimpleAbout />
+  <SimpleTestimonials />
+  <SimpleContact />
+  <SimpleFooter />
 </BaseLayout>

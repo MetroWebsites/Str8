@@ -1,0 +1,70 @@
+---
+---
+
+<section id="about" class="py-12 md:py-24 lg:py-32">
+  <div class="container px-4 md:px-6">
+    <div class="grid gap-10 md:grid-cols-2 md:gap-16">
+      <div>
+        <div class="space-y-4">
+          <h2 class="text-3xl font-bold tracking-tighter md:text-4xl">
+            About <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Str8Positive</span>
+          </h2>
+          <p class="text-muted-foreground">
+            Str8Positive was founded with a simple mission: to help people transform their lives
+            through the power of positive thinking. Our founder experienced firsthand how
+            changing thought patterns can lead to extraordinary life changes.
+          </p>
+          <p class="text-muted-foreground">
+            Today, we've helped thousands of people overcome negative thought patterns and embrace 
+            a more positive, fulfilling life. Our science-based approach combines traditional 
+            wisdom with modern psychological insights.
+          </p>
+        </div>
+        
+        <ul class="mt-8 grid gap-3">
+          {[
+            "Transform negative thinking into positive energy",
+            "Develop resilience and mental strength",
+            "Create a personalized positive thinking practice",
+            "Learn from certified positive thinking coaches",
+            "Join a supportive community"
+          ].map(point => (
+            <li class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-primary"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              <span class="text-sm">{point}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      
+      <div class="flex flex-col justify-center space-y-4">
+        <div class="rounded-lg bg-muted/50 p-8 md:p-10 lg:p-12">
+          <div class="mx-auto flex max-w-[400px] flex-col justify-center space-y-4 text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-12 w-12 mx-auto text-primary"><path d="M7 11V7a5 5 0 0 1 10 0v4"/><path d="M7 11h10"/><rect width="18" height="8" x="3" y="11" rx="4"/></svg>
+            <div class="space-y-2">
+              <h3 class="text-xl font-bold">Our Mission</h3>
+              <p class="text-muted-foreground text-sm">
+                To empower individuals to transform their mindset and achieve their fullest potential through proven positive thinking techniques.
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid grid-cols-3 gap-4">
+          <div class="rounded-lg bg-muted p-4 text-center">
+            <div class="text-2xl font-bold text-primary">10k+</div>
+            <div class="text-xs text-muted-foreground">Students</div>
+          </div>
+          <div class="rounded-lg bg-muted p-4 text-center">
+            <div class="text-2xl font-bold text-secondary">24</div>
+            <div class="text-xs text-muted-foreground">Coaches</div>
+          </div>
+          <div class="rounded-lg bg-muted p-4 text-center">
+            <div class="text-2xl font-bold text-primary">8</div>
+            <div class="text-xs text-muted-foreground">Years</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

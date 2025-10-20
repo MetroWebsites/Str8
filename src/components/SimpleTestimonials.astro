@@ -1,0 +1,56 @@
+---
+---
+
+<section id="testimonials" class="py-12 md:py-24 lg:py-32">
+  <div class="container px-4 md:px-6">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="space-y-2">
+        <h2 class="text-3xl font-bold tracking-tighter md:text-4xl">
+          Success <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Stories</span>
+        </h2>
+        <p class="mx-auto max-w-[700px] text-muted-foreground md:text-lg">
+          Real people, real transformations. Discover how positive thinking has changed lives.
+        </p>
+      </div>
+    </div>
+    
+    <div class="mx-auto grid max-w-5xl grid-cols-1 gap-8 md:grid-cols-3 mt-12">
+      {[
+        {
+          quote: "Str8Positive transformed my outlook on life. Their coaching helped me overcome anxiety and build confidence in my abilities.",
+          author: "Sarah J.",
+          role: "Marketing Executive"
+        },
+        {
+          quote: "The community aspect of Str8Positive was a game-changer for me. Having support from others on the same journey made all the difference.",
+          author: "Michael T.",
+          role: "Small Business Owner"
+        },
+        {
+          quote: "I was skeptical at first, but the practical techniques they taught me have helped me manage stress and find joy in everyday moments.",
+          author: "Elena K.",
+          role: "Healthcare Professional"
+        }
+      ].map(testimonial => (
+        <div class="flex flex-col justify-between rounded-lg border bg-card p-6 shadow-sm">
+          <div>
+            <div class="flex space-x-1 mb-4">
+              {Array(5).fill(0).map(() => (
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              ))}
+            </div>
+            
+            <blockquote class="text-sm mb-4">
+              "{testimonial.quote}"
+            </blockquote>
+          </div>
+          
+          <div class="border-t pt-4">
+            <p class="font-bold text-sm">{testimonial.author}</p>
+            <p class="text-xs text-muted-foreground">{testimonial.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
