@@ -34,7 +34,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
 
-  --font-sans: 'Poppins', 'Montserrat', ui-sans-serif, system-ui, sans-serif,
+  --font-sans: 'Space Grotesk', 'Syne', ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
@@ -94,31 +94,31 @@
 
 @layer base {
   :root {
-    --background: 210 50% 98%;
-    --foreground: 220 40% 12%;
-    --card: 0 0% 100%;
-    --card-foreground: 220 40% 12%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 220 40% 12%;
-    --primary: 43 96% 56%;
-    --primary-foreground: 220 40% 12%;
-    --secondary: 220 70% 55%;
+    --background: 260 15% 8%;
+    --foreground: 240 10% 95%;
+    --card: 260 15% 12%;
+    --card-foreground: 240 10% 95%;
+    --popover: 260 15% 12%;
+    --popover-foreground: 240 10% 95%;
+    --primary: 320 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 190 100% 55%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 210 40% 96%;
-    --muted-foreground: 220 20% 40%;
-    --accent: 142 72% 29%;
+    --muted: 260 15% 15%;
+    --muted-foreground: 240 10% 65%;
+    --accent: 280 100% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 20% 90%;
-    --input: 220 20% 90%;
-    --ring: 43 96% 56%;
-    --radius: 1rem;
-    --chart-1: 43 96% 56%;
-    --chart-2: 220 70% 55%;
-    --chart-3: 142 72% 29%;
-    --chart-4: 220 20% 40%;
-    --chart-5: 27 87% 67%;
+    --border: 260 15% 20%;
+    --input: 260 15% 20%;
+    --ring: 320 100% 60%;
+    --radius: 0.5rem;
+    --chart-1: 320 100% 60%;
+    --chart-2: 190 100% 55%;
+    --chart-3: 280 100% 60%;
+    --chart-4: 240 10% 65%;
+    --chart-5: 170 100% 55%;
   }
 }
 

@@ -1,23 +1,29 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Features from "@/components/Features";
-import About from "@/components/About";
-import Testimonials from "@/components/Testimonials";
-import CallToAction from "@/components/CallToAction";
-import ContactForm from "@/components/ContactForm";
+import Navigation from "@/components/Navigation";
+import HeroSection from "@/components/HeroSection";
+import FeatureSection from "@/components/FeatureSection";
+import AboutSection from "@/components/AboutSection";
+import TestimonialSection from "@/components/TestimonialSection";
+import CtaSection from "@/components/CtaSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 ---
 
 <BaseLayout
-  title="Str8PositiveThinking - Transform Your Life With Positive Thinking"
-  description="Discover the power of positive thinking and transform your life with our proven techniques, coaching, and community support."
+  title="Str8Positive - Transform Your Life Through Positive Thinking"
+  description="Discover the power of positive thinking and transform your life with our proven techniques, coaching, and supportive community."
 >
-  <Navbar slot="header" client:load />
-  <Hero client:load />
-  <Features client:load />
-  <About client:load />
-  <Testimonials client:load />
-  <CallToAction client:load />
-  <ContactForm client:load />
+  <div class="min-h-screen flex flex-col">
+    <Navigation client:load />
+    <main class="flex-grow mt-16">
+      <HeroSection client:load />
+      <FeatureSection client:load />
+      <AboutSection client:load />
+      <TestimonialSection client:load />
+      <CtaSection client:load />
+      <ContactSection client:load />
+    </main>
+    <Footer client:load />
+  </div>
 </BaseLayout>
