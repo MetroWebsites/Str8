@@ -28,9 +28,9 @@ const { title, description, ogImage } = Astro.props;
   type="image/svg+xml"
   href={`${Astro.site}favicon.svg`}
 />
-<title>{title}</title>
-<meta name="title" content={title} />
-<meta name="description" content={description} />
+<title>{title || "Str8PositiveThinking - Transform Your Life Through Positive Thinking"}</title>
+<meta name="title" content={title || "Str8PositiveThinking - Transform Your Life Through Positive Thinking"} />
+<meta name="description" content={description || "Discover the power of positive thinking with Str8PositiveThinking and transform your life with proven techniques, coaching, and community support."} />
 
 <meta property="og:type" content="website" />
 <meta property="og:url" content={canonicalURL} />
