@@ -3,6 +3,10 @@ import { Image } from 'astro:assets';
 import logo from '../assets/straight-positive-thinking-llc-01_nw_21335987.jpg';
 import sponsors from '../assets/sponsors_nw_400b4a17.jpg';
 import testimonialsImg from '../assets/screenshot_20230123_060834_messenger_nw_73ceaebd.jpg';
+import founderImg from '../assets/1760991425081-0_nw_f2e7d512.jpg';
+import testimonials2Img from '../assets/screenshot_20230123_060834_messenger-1_nw_ceaaa94d.jpg';
+import sponsors2 from '../assets/sponsors-1_nw_2ee0bf3d.jpg';
+import logo2 from '../assets/straight-positive-thinking-llc-01-1_nw_fc974e40.jpg';
 
 // Site URL setup for SEO
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -32,6 +36,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   
   <style>
+    @keyframes float {
+      0% {
+        transform: translateY(0px) translateX(0px);
+      }
+      50% {
+        transform: translateY(-20px) translateX(10px);
+      }
+      100% {
+        transform: translateY(0px) translateX(0px);
+      }
+    }
+    
     :root {
       --gold-gradient: linear-gradient(135deg, #ffd700, #b8860b, #daa520);
       --red-gradient: linear-gradient(135deg, #8b0000, #c00000, #ff0000);
@@ -181,8 +197,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background-image: radial-gradient(circle at 30% 50%, rgba(70, 0, 0, 0.3), transparent), 
-                      radial-gradient(circle at 80% 80%, rgba(150, 120, 0, 0.2), transparent);
+      background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9));
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       padding-top: 5rem;
     }
     
@@ -253,6 +271,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       background-color: var(--dark-surface);
       position: relative;
       overflow: hidden;
+      background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.98));
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
     
     .services::before {
@@ -452,6 +475,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .testimonials {
       background-color: var(--dark-bg);
       position: relative;
+      background-image: linear-gradient(to bottom, rgba(10, 10, 10, 0.92), rgba(10, 10, 10, 0.96));
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
     }
     
     .testimonials::before {
@@ -939,9 +967,19 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   
   <!-- Hero Section -->
   <section class="hero" id="home">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 10, 10, 0.8);"></div>
+      <Image src={logo2} alt="" width={1200} height={800} style="width: 100%; height: 100%; object-fit: cover;" />
+    </div>
     <div class="container">
-      <div class="hero-content">
-        <h1><span class="gold-text">Transform Your Life</span> Through <span class="red-text">Positive Thinking</span></h1>
+      <!-- Floating design elements -->
+      <div style="position: absolute; top: 15%; right: 10%; width: 250px; height: 250px; border-radius: 50%; background: linear-gradient(135deg, rgba(179, 0, 0, 0.2), transparent); filter: blur(60px); z-index: 1; animation: float 8s ease-in-out infinite;"></div>
+      <div style="position: absolute; bottom: 20%; left: 5%; width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), transparent); filter: blur(60px); z-index: 1; animation: float 10s ease-in-out infinite alternate;"></div>
+      
+      <div class="hero-content" style="position: relative; z-index: 2;">
+        <h1 style="position: relative;"><span class="gold-text">Transform Your Life</span> Through <span class="red-text">Positive Thinking</span>
+          <span style="position: absolute; bottom: -15px; left: 0; width: 100px; height: 4px; background: var(--gold-gradient); border-radius: 2px;"></span>
+        </h1>
         <p>Discover the power of positivity with Str8PositiveThinking. We provide motivational speaking, encouragement, and faith-based support to help you overcome challenges and achieve your fullest potential.</p>
         <div class="btn-group">
           <a href="#contact" class="btn btn-primary">Book a Speaking Event</a>
@@ -953,6 +991,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   
   <!-- Services Section -->
   <section class="services" id="services">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(18, 18, 18, 0.95);"></div>
+      <Image src={sponsors2} alt="" width={1200} height={800} style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4;" />
+    </div>
     <div class="container">
       <div class="section-heading">
         <h2>Our <span class="gold-text">Services</span></h2>
@@ -995,7 +1037,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="container">
       <div class="about-grid">
         <div>
-          <Image src={logo} alt="Str8 Positive Thinking Logo" class="about-image" />
+          <Image src={founderImg} alt="Founder of Str8 Positive Thinking" class="about-image" />
         </div>
         <div class="about-content">
           <h2>About <span class="gold-text">Str8Positive</span></h2>
@@ -1038,6 +1080,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   
   <!-- Testimonials Section -->
   <section class="testimonials" id="testimonials">
+    <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 10, 10, 0.92);"></div>
+      <Image src={logo} alt="" width={1200} height={800} style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;" />
+    </div>
     <div class="container">
       <div class="section-heading">
         <h2>What People <span class="gold-text">Say</span></h2>
@@ -1067,7 +1113,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
       
       <div style="margin-top: 3rem; text-align: center;">
-        <Image src={testimonialsImg} alt="More testimonials from our community" class="sponsors-img" />
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+          <Image src={testimonialsImg} alt="Testimonials from our community" class="sponsors-img" />
+          <Image src={testimonials2Img} alt="More testimonials from our community" class="sponsors-img" />
+        </div>
       </div>
     </div>
   </section>
@@ -1076,7 +1125,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <section class="sponsors">
     <div class="container">
       <h2>Our <span class="gold-text">Sponsors</span></h2>
-      <Image src={sponsors} alt="Thank you to our sponsors" class="sponsors-img" />
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem;">
+        <Image src={sponsors} alt="Thank you to our sponsors" class="sponsors-img" />
+        <Image src={sponsors2} alt="More sponsors supporting our mission" class="sponsors-img" />
+      </div>
     </div>
   </section>
   
