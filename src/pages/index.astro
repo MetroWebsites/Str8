@@ -1,212 +1,1210 @@
 ---
+import { Image } from 'astro:assets';
+import logo from '../assets/straight-positive-thinking-llc-01_nw_21335987.jpg';
+import sponsors from '../assets/sponsors_nw_400b4a17.jpg';
+import testimonialsImg from '../assets/screenshot_20230123_060834_messenger_nw_73ceaebd.jpg';
+
+// Site URL setup for SEO
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Str8Positive - Transform Your Life Through Positive Thinking</title>
-  <meta name="description" content="Discover the power of positive thinking with Str8PositiveThinking and transform your life with proven techniques, coaching, and community support." />
+  <title>Str8PositiveThinking - Causing That Good Trouble</title>
+  <meta name="description" content="Discover the power of positive thinking with Str8PositiveThinking and transform your life through motivational speaking, encouragement, and faith-based support." />
+  
+  <!-- SEO Meta Tags -->
+  <link rel="canonical" href={canonicalURL} />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content="Str8PositiveThinking - Causing That Good Trouble" />
+  <meta property="og:description" content="Discover the power of positive thinking with Str8PositiveThinking and transform your life through motivational speaking, encouragement, and faith-based support." />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonicalURL} />
+  <meta property="twitter:title" content="Str8PositiveThinking - Causing That Good Trouble" />
+  <meta property="twitter:description" content="Discover the power of positive thinking with Str8PositiveThinking and transform your life through motivational speaking, encouragement, and faith-based support." />
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
+    :root {
+      --gold-gradient: linear-gradient(135deg, #ffd700, #b8860b, #daa520);
+      --red-gradient: linear-gradient(135deg, #8b0000, #c00000, #ff0000);
+      --dark-bg: #0a0a0a;
+      --dark-surface: #121212;
+      --dark-surface-2: #1a1a1a;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --accent-gold: #d4af37;
+      --accent-red: #b30000;
+      --border-radius: 8px;
+    }
+    
+    * {
       margin: 0;
       padding: 0;
-      color: #f8f9fa;
-      background-color: #121212;
+      box-sizing: border-box;
     }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    
     .container {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 1.5rem;
     }
+    
+    section {
+      padding: 5rem 0;
+      position: relative;
+    }
+    
+    .gold-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    .red-text {
+      background: var(--red-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    /* Header & Navigation */
     header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
       padding: 1rem 0;
-      border-bottom: 1px solid #333;
+      transition: all 0.3s ease;
     }
-    header nav {
+    
+    header.scrolled {
+      padding: 0.8rem 0;
+      background-color: rgba(10, 10, 10, 0.98);
+    }
+    
+    .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    header a {
-      color: #f8f9fa;
-      text-decoration: none;
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
-    header .logo {
-      font-weight: bold;
+    
+    .logo-img {
+      width: 50px;
+      height: auto;
+    }
+    
+    .logo-text {
+      font-weight: 800;
       font-size: 1.5rem;
     }
-    header .nav-links a {
-      margin-left: 1.5rem;
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
     }
-    section {
-      padding: 3rem 0;
+    
+    .nav-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
     }
+    
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+    
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background: var(--gold-gradient);
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+    
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+    
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    
+    /* Hero Section */
     .hero {
-      text-align: center;
-      padding: 4rem 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background-image: radial-gradient(circle at 30% 50%, rgba(70, 0, 0, 0.3), transparent), 
+                      radial-gradient(circle at 80% 80%, rgba(150, 120, 0, 0.2), transparent);
+      padding-top: 5rem;
     }
+    
+    .hero-content {
+      max-width: 800px;
+    }
+    
     .hero h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: clamp(2.5rem, 8vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.1;
     }
+    
     .hero p {
-      max-width: 600px;
-      margin: 0 auto 2rem auto;
+      font-size: clamp(1rem, 4vw, 1.25rem);
+      margin-bottom: 2rem;
+      color: var(--text-secondary);
     }
+    
     .btn {
       display: inline-block;
-      padding: 0.5rem 1.5rem;
-      border-radius: 0.25rem;
+      padding: 0.875rem 2rem;
+      font-weight: 600;
       text-decoration: none;
-      margin: 0.5rem;
+      border-radius: var(--border-radius);
+      transition: all 0.3s ease;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    
+    .btn-primary {
+      background: var(--gold-gradient);
+      color: #000;
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    }
+    
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--text-primary);
+      border: 2px solid var(--accent-gold);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+    
+    .btn-secondary:hover {
+      background-color: rgba(212, 175, 55, 0.1);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    /* Services Section */
+    .services {
+      background-color: var(--dark-surface);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .services::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle at 90% 10%, rgba(150, 120, 0, 0.1), transparent 60%);
+      pointer-events: none;
+    }
+    
+    .section-heading {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    
+    .section-heading h2 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 1rem;
+    }
+    
+    .section-heading p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .service-card {
+      background-color: var(--dark-surface-2);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 0;
+      background: var(--gold-gradient);
+      transition: all 0.3s ease;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(212, 175, 55, 0.5);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .service-card:hover::before {
+      height: 100%;
+    }
+    
+    .service-icon {
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      color: var(--accent-gold);
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .service-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .service-card p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .service-link {
+      color: var(--accent-gold);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      margin-top: auto;
+      transition: all 0.3s ease;
+    }
+    
+    .service-link:hover {
+      gap: 0.75rem;
+    }
+    
+    /* About Section */
+    .about {
+      background-color: var(--dark-bg);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .about::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle at 10% 90%, rgba(179, 0, 0, 0.1), transparent 50%);
+      pointer-events: none;
+    }
+    
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    
+    .about-image {
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      border: 4px solid rgba(212, 175, 55, 0.2);
+      width: 100%;
+      height: auto;
+    }
+    
+    .about-content h2 {
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      margin-bottom: 1.5rem;
+    }
+    
+    .about-content p {
+      margin-bottom: 1.5rem;
+      color: var(--text-secondary);
+    }
+    
+    .mission-card {
+      background-color: var(--dark-surface);
+      border-radius: var(--border-radius);
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent-red);
+      margin-top: 2rem;
+    }
+    
+    .mission-card h3 {
+      color: var(--text-primary);
+      margin-bottom: 0.75rem;
+    }
+    
+    .mission-card p {
+      margin-bottom: 0;
+    }
+    
+    /* Stats Section */
+    .stats {
+      background-color: var(--dark-surface-2);
+      padding: 4rem 0;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+    
+    .stat-item h3 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .stat-item p {
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Testimonials Section */
+    .testimonials {
+      background-color: var(--dark-bg);
+      position: relative;
+    }
+    
+    .testimonials::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle at 10% 10%, rgba(179, 0, 0, 0.1), transparent), 
+                      radial-gradient(circle at 90% 90%, rgba(150, 120, 0, 0.1), transparent);
+      pointer-events: none;
+    }
+    
+    .testimonial-card {
+      background-color: var(--dark-surface-2);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '\201C';
+      position: absolute;
+      top: 1rem;
+      left: 2rem;
+      font-size: 5rem;
+      color: rgba(212, 175, 55, 0.2);
+      font-family: Georgia, serif;
+      line-height: 0;
+      z-index: 0;
+    }
+    
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: var(--text-secondary);
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .author-info h4 {
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+    
+    .author-info p {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+    
+    /* Contact Section */
+    .contact {
+      background-color: var(--dark-surface);
+      position: relative;
+    }
+    
+    .contact::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(circle at 90% 90%, rgba(150, 120, 0, 0.1), transparent 50%);
+      pointer-events: none;
+    }
+    
+    .contact-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+    }
+    
+    .contact-info h2 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-info p {
+      margin-bottom: 2rem;
+      color: var(--text-secondary);
+    }
+    
+    .contact-method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-icon {
+      background-color: rgba(212, 175, 55, 0.1);
+      height: 50px;
+      width: 50px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--accent-gold);
+      font-size: 1.5rem;
+    }
+    
+    .contact-method-info h4 {
+      margin-bottom: 0.25rem;
+      color: var(--text-primary);
+    }
+    
+    .contact-method-info a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-method-info a:hover {
+      color: var(--accent-gold);
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    
+    .social-link {
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      background-color: var(--dark-surface-2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .social-link:hover {
+      transform: translateY(-3px);
+      background-color: var(--accent-gold);
+      color: #000;
+    }
+    
+    .contact-form {
+      background-color: var(--dark-surface-2);
+      border-radius: var(--border-radius);
+      padding: 2rem;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--text-primary);
       font-weight: 500;
     }
-    .btn-primary {
-      background-color: #ff3e81;
-      color: white;
+    
+    .form-control {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      background-color: var(--dark-surface);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      color: var(--text-primary);
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
     }
-    .btn-secondary {
-      border: 1px solid #666;
-      color: #f8f9fa;
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
     }
-    .section-alt {
-      background-color: #1e1e1e;
+    
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
     }
-    h2 {
-      font-size: 2rem;
+    
+    /* Sponsors Section */
+    .sponsors {
+      padding: 4rem 0;
+      background-color: var(--dark-bg);
+      text-align: center;
+    }
+    
+    .sponsors h2 {
       margin-bottom: 2rem;
-      text-align: center;
     }
-    footer {
-      padding: 2rem 0;
-      text-align: center;
-      border-top: 1px solid #333;
+    
+    .sponsors-img {
+      border-radius: var(--border-radius);
+      max-width: 100%;
+      height: auto;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
-    footer a {
-      color: #ff3e81;
+    
+    /* Footer */
+    .footer {
+      background-color: var(--dark-surface-2);
+      padding: 4rem 0 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .footer-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    
+    .footer-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+    
+    .footer-logo img {
+      height: 40px;
+      width: auto;
+    }
+    
+    .footer-about p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+    
+    .footer-heading {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    .footer-heading::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background: var(--gold-gradient);
+    }
+    
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    
+    .footer-links a:hover {
+      color: var(--accent-gold);
+      transform: translateX(5px);
+    }
+    
+    .footer-newsletter p {
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    
+    .newsletter-form {
+      display: flex;
+      gap: 0.5rem;
+    }
+    
+    .newsletter-input {
+      flex: 1;
+      padding: 0.75rem 1rem;
+      background-color: var(--dark-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      color: var(--text-primary);
+    }
+    
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+    }
+    
+    .newsletter-btn {
+      background: var(--gold-gradient);
+      color: #000;
+      border: none;
+      border-radius: var(--border-radius);
+      padding: 0.75rem 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .newsletter-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .footer-bottom p {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .footer-bottom a {
+      color: var(--accent-gold);
       text-decoration: none;
     }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .btn-group {
+        justify-content: center;
+      }
+      
+      .hero {
+        text-align: center;
+      }
+      
+      .hero-content {
+        margin: 0 auto;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .mobile-menu-btn {
+        display: block;
+      }
+      
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--dark-bg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        z-index: 1001;
+        transform: translateY(-100%);
+        transition: all 0.5s ease;
+      }
+      
+      .mobile-menu.open {
+        transform: translateY(0);
+      }
+      
+      .mobile-menu a {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-size: 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      
+      .mobile-menu a:hover {
+        color: var(--accent-gold);
+      }
+      
+      .close-menu-btn {
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      
+      .btn-group {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      
+      .contact-container {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
+  
+  <script>
+    // Add scroll event listener to change header on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('header');
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const closeMenuBtn = document.querySelector('.close-menu-btn');
+      
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.classList.add('scrolled');
+        } else {
+          header.classList.remove('scrolled');
+        }
+      });
+      
+      // Mobile menu toggle
+      if (mobileMenuBtn && mobileMenu && closeMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.add('open');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+        });
+        
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+          });
+        });
+      }
+    });
+  </script>
 </head>
 <body>
+  <!-- Header Section -->
   <header>
-    <div class="container">
-      <nav>
-        <a href="/" class="logo">Str8Positive</a>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#contact">Contact</a>
-        </div>
+    <div class="container header-container">
+      <div class="logo-container">
+        <Image src={logo} alt="Str8 Positive Thinking Logo" width="50" height="50" class="logo-img" />
+        <div class="logo-text"><span class="gold-text">STR8</span> <span class="red-text">POSITIVE</span></div>
+      </div>
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
       </nav>
+      <button class="mobile-menu-btn" aria-label="Open mobile menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
     </div>
   </header>
-
-  <section class="hero">
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <button class="close-menu-btn" aria-label="Close mobile menu">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </div>
+  
+  <!-- Hero Section -->
+  <section class="hero" id="home">
     <div class="container">
-      <h1>Transform Your Life With Positive Thinking</h1>
-      <p>Discover the power of positive thinking and transform your life with our proven techniques.</p>
-      <div>
-        <a href="#contact" class="btn btn-primary">Get Started</a>
-        <a href="#about" class="btn btn-secondary">Learn More</a>
-      </div>
-    </div>
-  </section>
-
-  <section id="services" class="section-alt">
-    <div class="container">
-      <h2>Our Services</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        <div style="background-color: #252525; padding: 1.5rem; border-radius: 0.25rem;">
-          <h3>Mindset Coaching</h3>
-          <p>One-on-one sessions with certified positive thinking coaches.</p>
-        </div>
-        <div style="background-color: #252525; padding: 1.5rem; border-radius: 0.25rem;">
-          <h3>Wellness Programs</h3>
-          <p>Holistic approaches to mental and emotional wellbeing.</p>
-        </div>
-        <div style="background-color: #252525; padding: 1.5rem; border-radius: 0.25rem;">
-          <h3>Community Support</h3>
-          <p>Join our community of positive thinkers for encouragement and friendship.</p>
+      <div class="hero-content">
+        <h1><span class="gold-text">Transform Your Life</span> Through <span class="red-text">Positive Thinking</span></h1>
+        <p>Discover the power of positivity with Str8PositiveThinking. We provide motivational speaking, encouragement, and faith-based support to help you overcome challenges and achieve your fullest potential.</p>
+        <div class="btn-group">
+          <a href="#contact" class="btn btn-primary">Book a Speaking Event</a>
+          <a href="#services" class="btn btn-secondary">Our Services</a>
         </div>
       </div>
     </div>
   </section>
-
-  <section id="about">
+  
+  <!-- Services Section -->
+  <section class="services" id="services">
     <div class="container">
-      <h2>About Str8Positive</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+      <div class="section-heading">
+        <h2>Our <span class="gold-text">Services</span></h2>
+        <p>Empowering individuals and groups through positive motivation and encouragement</p>
+      </div>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/><path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/><path d="M12 2v2"/><path d="M12 22v-2"/><path d="m17 20.66-1-1.73"/><path d="M11 10.27 7 3.34"/><path d="m20.66 17-1.73-1"/><path d="m3.34 7 1.73 1"/><path d="M14 12h8"/><path d="M2 12h2"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m17 3.34-1 1.73"/><path d="m11 13.73-4 6.93"/></svg>
+          </div>
+          <h3>Motivational Speaking</h3>
+          <p>Inspire your audience with powerful talks that encourage positive thinking and personal growth. Available for schools, churches, businesses, and community events.</p>
+          <a href="#contact" class="service-link">Book Now <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 10v12"/><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"/></svg>
+          </div>
+          <h3>Encouragement & Support</h3>
+          <p>Personalized encouragement for those facing difficult life circumstances. We provide faith-based support to help you navigate challenges with a positive mindset.</p>
+          <a href="#contact" class="service-link">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+        
+        <div class="service-card">
+          <div class="service-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2c1.981 0 3.671 1.15 4.5 2.822A5.006 5.006 0 0 1 17 8c0 3.246-6 6-6 6 0 0-6-2.754-6-6a5.006 5.006 0 0 1 4.5-5.178A5 5 0 0 1 8 2Z"/><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"/><path d="M19.5 16.5c1.5 1.26 2 5 2 5s-3.74-.5-5-2c-.71-.84-.7-2.13.09-2.91a2.18 2.18 0 0 1 2.91-.09Z"/></svg>
+          </div>
+          <h3>Youth Programs</h3>
+          <p>Special programs designed for young people to develop positive thinking habits early in life. Build resilience, confidence, and a growth mindset.</p>
+          <a href="#contact" class="service-link">Get Involved <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- About Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
         <div>
-          <p>Str8Positive was founded with a simple mission: to help people transform their lives through the power of positive thinking.</p>
-          <ul>
-            <li>Transform negative thinking into positive energy</li>
-            <li>Develop resilience and mental strength</li>
-            <li>Create a personalized positive thinking practice</li>
-          </ul>
+          <Image src={logo} alt="Str8 Positive Thinking Logo" class="about-image" />
         </div>
-        <div style="background-color: #1e1e1e; padding: 1.5rem; border-radius: 0.25rem; text-align: center;">
-          <h3>Our Mission</h3>
-          <p>To empower individuals to transform their mindset and achieve their fullest potential through proven positive thinking techniques.</p>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 1.5rem;">
-            <div style="background-color: #252525; padding: 1rem; border-radius: 0.25rem;">
-              <div style="font-size: 1.5rem; font-weight: bold;">10k+</div>
-              <div style="font-size: 0.875rem; color: #aaa;">Students</div>
-            </div>
-            <div style="background-color: #252525; padding: 1rem; border-radius: 0.25rem;">
-              <div style="font-size: 1.5rem; font-weight: bold;">24</div>
-              <div style="font-size: 0.875rem; color: #aaa;">Coaches</div>
-            </div>
-            <div style="background-color: #252525; padding: 1rem; border-radius: 0.25rem;">
-              <div style="font-size: 1.5rem; font-weight: bold;">8</div>
-              <div style="font-size: 0.875rem; color: #aaa;">Years</div>
-            </div>
+        <div class="about-content">
+          <h2>About <span class="gold-text">Str8Positive</span></h2>
+          <p>I have three brothers and a sister. Growing up, we experienced life differently from all points of view. Each of us handled life's situations, whether good or bad, in our own unique ways.</p>
+          <p>For me, it always felt like there needed to be more positivity in the world – in our lives, in the situations we faced. As I got older and embraced Christianity, it became a significant part of my identity. It's something I feel called to spread, this positivity that's been with me all along.</p>
+          <p>I want to take my family on this journey with me, supporting them as they discover their own paths and what God has in store for them.</p>
+          
+          <div class="mission-card">
+            <h3>Our Mission</h3>
+            <p>At Str8 Positive Thinking, our mission is to inspire positive change in the lives of others. Through our motivational speaking and encouragement, we aim to empower individuals to embrace optimism and resilience in every aspect of life.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <section id="contact" class="section-alt">
+  
+  <!-- Stats Section -->
+  <section class="stats">
     <div class="container">
-      <h2>Get in Touch</h2>
-      <div style="max-width: 500px; margin: 0 auto;">
-        <form data-form-type="utility" style="background-color: #252525; padding: 1.5rem; border-radius: 0.25rem;">
-          <div style="margin-bottom: 1rem;">
-            <label for="name" style="display: block; margin-bottom: 0.5rem;">Name</label>
-            <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5rem; border: 1px solid #444; border-radius: 0.25rem; background-color: #333; color: #f8f9fa;" />
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>1000+</h3>
+          <p>Lives Touched</p>
+        </div>
+        <div class="stat-item">
+          <h3>50+</h3>
+          <p>Speaking Events</p>
+        </div>
+        <div class="stat-item">
+          <h3>4</h3>
+          <p>Social Platforms</p>
+        </div>
+        <div class="stat-item">
+          <h3>24/7</h3>
+          <p>Positive Energy</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <h2>What People <span class="gold-text">Say</span></h2>
+        <p>Hear from those who have experienced the power of positive thinking</p>
+      </div>
+      
+      <div style="margin-top: 3rem;">
+        <div class="testimonial-card">
+          <p class="testimonial-content">"Str8Positive's motivational speaking truly changed my outlook on life. The message of positivity and faith resonated deeply with me during a challenging time. I'm forever grateful for the encouragement and support."</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Sarah Johnson</h4>
+              <p>Community Member</p>
+            </div>
           </div>
-          <div style="margin-bottom: 1rem;">
-            <label for="email" style="display: block; margin-bottom: 0.5rem;">Email</label>
-            <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5rem; border: 1px solid #444; border-radius: 0.25rem; background-color: #333; color: #f8f9fa;" />
+        </div>
+        
+        <div class="testimonial-card">
+          <p class="testimonial-content">"Having Str8Positive speak at our youth event was incredible. The students were engaged and inspired by the authentic message of hope and positive thinking. We've already booked for next year!"</p>
+          <div class="testimonial-author">
+            <div class="author-info">
+              <h4>Pastor Michael Williams</h4>
+              <p>Local Church Leader</p>
+            </div>
           </div>
-          <div style="margin-bottom: 1rem;">
-            <label for="message" style="display: block; margin-bottom: 0.5rem;">Message</label>
-            <textarea id="message" name="message" rows="4" required style="width: 100%; padding: 0.5rem; border: 1px solid #444; border-radius: 0.25rem; background-color: #333; color: #f8f9fa;"></textarea>
+        </div>
+      </div>
+      
+      <div style="margin-top: 3rem; text-align: center;">
+        <Image src={testimonialsImg} alt="More testimonials from our community" class="sponsors-img" />
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sponsors Section -->
+  <section class="sponsors">
+    <div class="container">
+      <h2>Our <span class="gold-text">Sponsors</span></h2>
+      <Image src={sponsors} alt="Thank you to our sponsors" class="sponsors-img" />
+    </div>
+  </section>
+  
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Get <span class="gold-text">In Touch</span></h2>
+        <p>Book a speaking engagement or reach out for encouragement</p>
+      </div>
+      
+      <div class="contact-container">
+        <div class="contact-info">
+          <h3>Contact Information</h3>
+          <p>We're here to help you bring positive thinking into your life, event, or organization. Reach out today!</p>
+          
+          <div class="contact-method">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-method-info">
+              <h4>Email</h4>
+              <a href="mailto:info@str8positivethinking.com">info@str8positivethinking.com</a>
+            </div>
           </div>
-          <input type="hidden" name="form_name" value="Contact Form" />
-          <button type="submit" style="width: 100%; background-color: #ff3e81; color: white; border: none; padding: 0.75rem 1rem; border-radius: 0.25rem; font-weight: 500; cursor: pointer;">
-            Send Message
-          </button>
+          
+          <div class="social-links">
+            <a href="https://www.youtube.com/@straightpositivethinkingwi1673?sub_confirmation=1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+            </a>
+            <a href="https://podcasters.spotify.com/pod/show/stevie-bennett3" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 11.8a6 6 0 0 1 8 0"/><path d="M9 9a3.5 3.5 0 0 1 6 0"/><path d="M11 6a1.5 1.5 0 1 1 2 0"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@steviebennettjr" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5Z"/><path d="M10 12a3 3 0 1 1-3-3"/><path d="M10 9v8"/><path d="M14 15a3 3 0 0 0 3-3V9a3 3 0 0 1 3-3"/></svg>
+            </a>
+            <a href="https://www.instagram.com/str8positivethinking?igshid=ZDdkNTZiNTM%3D" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://linktr.ee/steviedatroublemaker" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Linktree">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1"/><path d="M17 3h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1"/><path d="M12 3v16"/></svg>
+            </a>
+          </div>
+        </div>
+        
+        <div class="contact-form">
+          <form data-form-type="utility" action="https://api.new.website/api/submit-form/" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your name" />
+            </div>
+            
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" name="email" class="form-control" required placeholder="Enter your email" />
+            </div>
+            
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" name="subject" class="form-control" required placeholder="Event booking, question, etc." />
+            </div>
+            
+            <div class="form-group">
+              <label for="message" class="form-label">Message</label>
+              <textarea id="message" name="message" class="form-control" required placeholder="Tell us about your event, question, or request"></textarea>
+            </div>
+            
+            <input type="hidden" name="form_name" value="Str8 Positive Contact Form" />
+            
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-about">
+        <a href="#" class="footer-logo">
+          <Image src={logo} alt="Str8 Positive Thinking Logo" width="40" height="40" />
+          <span class="gold-text">STR8</span> <span class="red-text">POSITIVE</span>
+        </a>
+        <p>"Causing that good trouble, we are all about helping people an encouraging them"</p>
+        <div class="social-links">
+          <a href="https://www.youtube.com/@straightpositivethinkingwi1673?sub_confirmation=1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+          </a>
+          <a href="https://podcasters.spotify.com/pod/show/stevie-bennett3" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 11.8a6 6 0 0 1 8 0"/><path d="M9 9a3.5 3.5 0 0 1 6 0"/><path d="M11 6a1.5 1.5 0 1 1 2 0"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@steviebennettjr" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5Z"/><path d="M10 12a3 3 0 1 1-3-3"/><path d="M10 9v8"/><path d="M14 15a3 3 0 0 0 3-3V9a3 3 0 0 1 3-3"/></svg>
+          </a>
+          <a href="https://www.instagram.com/str8positivethinking?igshid=ZDdkNTZiNTM%3D" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-links-container">
+        <h4 class="footer-heading">Quick Links</h4>
+        <div class="footer-links">
+          <a href="#home">Home</a>
+          <a href="#services">Services</a>
+          <a href="#about">About Us</a>
+          <a href="#testimonials">Testimonials</a>
+          <a href="#contact">Contact Us</a>
+        </div>
+      </div>
+      
+      <div class="footer-newsletter">
+        <h4 class="footer-heading">Subscribe to Our Newsletter</h4>
+        <p>Stay updated with our latest events and positive messages</p>
+        <form data-form-type="utility" class="newsletter-form">
+          <input type="email" name="email" class="newsletter-input" placeholder="Your email address" required />
+          <button type="submit" class="newsletter-btn">Subscribe</button>
+          <input type="hidden" name="form_name" value="Newsletter Signup" />
         </form>
       </div>
     </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <p>&copy; {new Date().getFullYear()} Str8Positive. All rights reserved.</p>
-      <p style="font-size: 0.875rem; color: #aaa;">
-        Built with
-        <a href="https://new.website" target="_blank" rel="noreferrer">new.website</a>
-      </p>
+    
+    <div class="footer-bottom">
+      <p>&copy; {new Date().getFullYear()} Str8 Positive Thinking. All rights reserved. | <a href="https://new.website" target="_blank" rel="noreferrer">Built with new.website</a></p>
     </div>
   </footer>
-
+  
   <!-- DO NOT REMOVE - Necessary for making visual edits via new.website! -->
   <script src="https://api.new.website/static/new-website.js"></script>
 </body>
