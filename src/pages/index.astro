@@ -9,9 +9,12 @@ import sponsors2 from '../assets/sponsors-1_nw_2ee0bf3d.jpg';
 import logo2 from '../assets/straight-positive-thinking-llc-01-1_nw_fc974e40.jpg';
 
 // New assets
-import newLogo from '../assets/straight-positive-thinking-llc-01-2_nw_716ac5c5.jpg';
-import newSponsors from '../assets/sponsors-2_nw_f287195d.jpg';
+import newLogo from '../assets/straight-positive-thinking-llc-01-3_nw_895cee9b.jpg';
+import newSponsors from '../assets/image000001_nw_8db8628c.jpg';
 import newTestimonial from '../assets/screenshot_20230123_060834_messenger-2_nw_aab24800.jpg';
+import kcMailing from '../assets/500272678_23967249526200867_2784044080589144156_n_nw_ca8b0c4e.jpg';
+import grinchImage from '../assets/1000005102_nw_1e15eeae.jpg';
+import billboardImage from '../assets/1000004287_nw_479f5676.jpg';
 
 // Site URL setup for SEO
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -1029,8 +1032,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(10, 10, 10, 0.7), rgba(0, 0, 0, 0.9));"></div>
-      <Image src={newLogo} alt="" width={1200} height={800} style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;" />
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(10, 10, 10, 0.5), rgba(0, 0, 0, 0.8));"></div>
+      <Image src={billboardImage} alt="" width={1200} height={800} style="width: 100%; height: 100%; object-fit: cover; opacity: 0.5;" />
     </div>
     <div class="container">
       <!-- Floating design elements -->
@@ -1062,8 +1065,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <!-- Services Section -->
   <section class="services" id="services">
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(18, 18, 18, 0.92);"></div>
-      <Image src={newSponsors} alt="" width={1200} height={800} style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;" />
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(18, 18, 18, 0.85);"></div>
+      <Image src={newSponsors} alt="" width={1200} height={800} style="width: 100%; height: 100%; object-fit: cover; opacity: 0.4;" />
     </div>
     <div class="container">
       <div class="section-heading">
@@ -1107,7 +1110,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="container">
       <div class="about-grid">
         <div>
-          <Image src={founderImg} alt="Founder of Str8 Positive Thinking" class="about-image" />
+          <Image src={grinchImage} alt="Founder of Str8 Positive Thinking" class="about-image" />
         </div>
         <div class="about-content">
           <h2>About <span class="gold-text" style="text-shadow: var(--gold-glow);">Str8Positive</span></h2>
@@ -1151,8 +1154,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <!-- Testimonials Section -->
   <section class="testimonials" id="testimonials">
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 10, 10, 0.90);"></div>
-      <Image src={newTestimonial} alt="" width={1200} height={800} style="width: 100%; height: 100%; object-fit: cover; opacity: 0.2;" />
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(10, 10, 10, 0.80);"></div>
+      <Image src={kcMailing} alt="" width={1200} height={800} style="width: 100%; height: 100%; object-fit: cover; opacity: 0.3;" />
     </div>
     <div class="container">
       <div class="section-heading">
@@ -1184,9 +1187,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       
       <div style="margin-top: 3rem; text-align: center;">
         <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem;">
-          <Image src={testimonialsImg} alt="Testimonials from our community" class="sponsors-img" />
-          <Image src={testimonials2Img} alt="More testimonials from our community" class="sponsors-img" />
-          <Image src={newTestimonial} alt="Even more testimonials from our community" class="sponsors-img" />
+          <Image src={newTestimonial} alt="Testimonials from our community" class="sponsors-img" />
+          <Image src={kcMailing} alt="More testimonials from our community" class="sponsors-img" />
+          <Image src={grinchImage} alt="Even more testimonials from our community" class="sponsors-img" />
         </div>
       </div>
     </div>
@@ -1197,9 +1200,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <div class="container">
       <h2>Our <span class="gold-text" style="text-shadow: var(--gold-glow);">Sponsors</span></h2>
       <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; margin-top: 2rem;">
-        <Image src={sponsors} alt="Thank you to our sponsors" class="sponsors-img" />
-        <Image src={sponsors2} alt="More sponsors supporting our mission" class="sponsors-img" />
-        <Image src={newSponsors} alt="Even more sponsors supporting our mission" class="sponsors-img" />
+        <Image src={newSponsors} alt="Thank you to our sponsors" class="sponsors-img" />
+        <Image src={kcMailing} alt="More sponsors supporting our mission" class="sponsors-img" />
+        <Image src={billboardImage} alt="Even more sponsors supporting our mission" class="sponsors-img" />
       </div>
     </div>
   </section>
