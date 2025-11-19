@@ -304,11 +304,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       background-color: var(--dark-surface);
       position: relative;
       overflow: hidden;
-      background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.98));
+      background-image: linear-gradient(to bottom, rgba(18, 18, 18, 0.97), rgba(18, 18, 18, 0.99));
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
       background-repeat: no-repeat;
+      z-index: 1;
     }
     
     .services::before {
@@ -1080,48 +1081,48 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   </section>
   
   <!-- Services Section -->
-  <section class="services" id="services">
+  <section class="services" id="services" style="z-index: 1;">
     <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: 0;">
-      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom right, rgba(18, 18, 18, 0.85), rgba(0, 0, 0, 0.9));"></div>
-      <img src="https://images.unsplash.com/photo-1699982759850-22dbbd9676b7?w=1200&h=300&auto=format&fit=crop&q=80" alt="" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.2; filter: saturate(1.1);" />
+      <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom right, rgba(18, 18, 18, 0.95), rgba(0, 0, 0, 0.98));"></div>
+      <img src="https://images.unsplash.com/photo-1699982759850-22dbbd9676b7?w=1200&h=300&auto=format&fit=crop&q=80" alt="" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.1; filter: saturate(1.1);" />
     </div>
-    <div class="container">
-      <div class="section-heading">
-        <h2>Our <span class="gold-text" style="text-shadow: var(--gold-glow);">Services</span></h2>
+    <div class="container" style="position: relative; z-index: 2;">
+      <div class="section-heading" style="position: relative; z-index: 5;">
+        <h2 style="position: relative; z-index: 5; color: white;">Our <span class="gold-text" style="text-shadow: var(--gold-glow);">Services</span></h2>
         <div style="display: flex; justify-content: center; margin: 1rem 0;">
           <div style="width: 120px; height: 3px; background: var(--gold-gradient); border-radius: 2px; box-shadow: var(--gold-glow);"></div>
         </div>
-        <p style="font-size: 1.2rem; max-width: 650px; margin: 0 auto 2rem; line-height: 1.6;">Empowering individuals and groups through positive motivation and personalized encouragement for transformative growth</p>
+        <p style="font-size: 1.2rem; max-width: 650px; margin: 0 auto 2rem; line-height: 1.6; position: relative; z-index: 5; color: rgba(255, 255, 255, 0.9);">Empowering individuals and groups through positive motivation and personalized encouragement for transformative growth</p>
       </div>
       
-      <div class="services-grid">
-        <div class="service-card" style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); backdrop-filter: blur(5px);">
+      <div class="services-grid" style="position: relative; z-index: 5;">
+        <div class="service-card" style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98)); backdrop-filter: blur(5px); position: relative; z-index: 3;">
           <div style="position: absolute; top: -15px; right: -15px; width: 100px; height: 100px; background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08), transparent 70%); filter: blur(15px);"></div>
           <div class="service-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg>
           </div>
-          <h3 style="font-size: 1.6rem;">Motivational Speaking</h3>
-          <p style="font-size: 1.05rem; line-height: 1.7;">Inspire your audience with powerful talks that encourage positive thinking and personal growth. Available for schools, churches, businesses, and community events.</p>
+          <h3 style="font-size: 1.6rem; color: white;">Motivational Speaking</h3>
+          <p style="font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9);">Inspire your audience with powerful talks that encourage positive thinking and personal growth. Available for schools, churches, businesses, and community events.</p>
           <a href="#contact" class="service-link" style="font-weight: 600; font-size: 1.05rem;">Book Now <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
         </div>
         
-        <div class="service-card" style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); backdrop-filter: blur(5px);">
+        <div class="service-card" style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98)); backdrop-filter: blur(5px); position: relative; z-index: 3;">
           <div style="position: absolute; top: -15px; right: -15px; width: 100px; height: 100px; background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08), transparent 70%); filter: blur(15px);"></div>
           <div class="service-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.25 10c0 .966-.896 1.75-2 1.75s-2-.784-2-1.75.896-1.75 2-1.75 2 .784 2 1.75Z"/><path d="M15 15.25c1.864 0 3.736.095 5.274.773.962.425 1.726 1.133 1.726 2.227v1m-14 0v-1c0-1.094.764-1.802 1.726-2.227 1.538-.678 3.41-.773 5.274-.773"/><path d="M21 2.5V10l-2-1-2 1V2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5Z"/><path d="M7 2h0a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h0a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"/></svg>
           </div>
-          <h3 style="font-size: 1.6rem;">Encouragement & Support</h3>
-          <p style="font-size: 1.05rem; line-height: 1.7;">Personalized encouragement for those facing difficult life circumstances. We provide faith-based support to help you navigate challenges with a positive mindset.</p>
+          <h3 style="font-size: 1.6rem; color: white;">Encouragement & Support</h3>
+          <p style="font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9);">Personalized encouragement for those facing difficult life circumstances. We provide faith-based support to help you navigate challenges with a positive mindset.</p>
           <a href="#contact" class="service-link" style="font-weight: 600; font-size: 1.05rem;">Learn More <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
         </div>
         
-        <div class="service-card" style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); backdrop-filter: blur(5px);">
+        <div class="service-card" style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98)); backdrop-filter: blur(5px); position: relative; z-index: 3;">
           <div style="position: absolute; top: -15px; right: -15px; width: 100px; height: 100px; background: radial-gradient(circle at center, rgba(212, 175, 55, 0.08), transparent 70%); filter: blur(15px);"></div>
           <div class="service-icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.287L12 21l1.9-5.8a2 2 0 0 1 1.287-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.287Z"/></svg>
           </div>
-          <h3 style="font-size: 1.6rem;">Youth Programs</h3>
-          <p style="font-size: 1.05rem; line-height: 1.7;">Special programs designed for young people to develop positive thinking habits early in life. Build resilience, confidence, and a growth mindset.</p>
+          <h3 style="font-size: 1.6rem; color: white;">Youth Programs</h3>
+          <p style="font-size: 1.05rem; line-height: 1.7; color: rgba(255, 255, 255, 0.9);">Special programs designed for young people to develop positive thinking habits early in life. Build resilience, confidence, and a growth mindset.</p>
           <a href="#contact" class="service-link" style="font-weight: 600; font-size: 1.05rem;">Get Involved <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
         </div>
       </div>
