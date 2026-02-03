@@ -1,0 +1,359 @@
+---
+import { Image } from 'astro:assets';
+import newLogo from '../assets/straight-positive-thinking-llc-01-3_nw_895cee9b.jpg';
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Book STR8 Positive Thinking | Speaking Engagements & Events</title>
+  <meta name="description" content="Book Steven Jerome Bennett Jr (aka Stevie Da Troublemaker) for Spirit-led encouragement at your church, school, or community event." />
+  
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --gold-gradient: linear-gradient(135deg, #ffd700, #b8860b, #daa520);
+      --red-gradient: linear-gradient(135deg, #8b0000, #c00000, #ff0000);
+      --gold-glow: 0 0 15px rgba(255, 215, 0, 0.5);
+      --dark-bg: #0a0a0a;
+      --dark-surface: #121212;
+      --dark-surface-2: #1a1a1a;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --accent-gold: #d4af37;
+      --border-radius: 8px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .gold-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    .red-text {
+      background: var(--red-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+    
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    
+    .form-label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    
+    .form-control {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      background-color: rgba(0, 0, 0, 0.3);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--border-radius);
+      color: var(--text-primary);
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+    }
+    
+    textarea.form-control {
+      min-height: 120px;
+      resize: vertical;
+    }
+    
+    .btn-primary {
+      background: var(--gold-gradient);
+      color: #000;
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <Image src={newLogo} alt="STR8 Logo" width="50" height="50" style="filter: drop-shadow(var(--gold-glow));" />
+        <div style="font-weight: 800; font-size: 1.5rem;"><span class="gold-text">STR8</span> <span class="red-text">POSITIVE</span></div>
+      </div>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/info">Info</a>
+        <a href="/booking">Book</a>
+        <a href="/donate">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <section style="min-height: 60vh; display: flex; align-items: center; padding-top: 6rem; padding-bottom: 4rem; background: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(0, 0, 0, 0.95));">
+    <div class="container" style="text-align: center;">
+      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem;">
+        <span class="gold-text" style="text-shadow: var(--gold-glow);">Book</span> <span class="red-text">STR8</span>
+      </h1>
+      <div style="width: 150px; height: 4px; background: var(--gold-gradient); margin: 1.5rem auto;"></div>
+      <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto 2rem; color: rgba(255, 255, 255, 0.9); line-height: 1.8;">
+        STR8 Positive Thinking brings Spirit-led encouragement, prayer, and bold Christian testimony to churches, schools, and communities.
+      </p>
+      <p style="font-size: 1.15rem; margin-bottom: 1rem; color: var(--text-secondary);">
+        Led by Steven Jerome Bennett Jr. — aka Stevie Da Troublemaker
+      </p>
+      <p style="font-size: 1.1rem; color: rgba(255, 255, 255, 0.8);">
+        This outreach challenges fear, complacency, and doubt with faith that speaks life.
+      </p>
+      <p style="font-size: 1.25rem; font-weight: 600; color: var(--accent-gold); margin-top: 1.5rem;">
+        #GoJesus
+      </p>
+    </div>
+  </section>
+
+  <section style="padding: 5rem 0; background-color: var(--dark-surface);">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 2rem;">Booking <span class="gold-text">Packages</span></h2>
+      <div style="width: 100px; height: 3px; background: var(--gold-gradient); margin: 0 auto 3rem;"></div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 4rem;">
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98)); padding: 2rem; border-radius: 12px; border: 2px solid rgba(212, 175, 55, 0.2);">
+          <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent-gold);">Encouragement Impact</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.75rem;">✓ One speaking session (30–60 min)</li>
+            <li style="margin-bottom: 0.75rem;">✓ Christian testimony</li>
+            <li style="margin-bottom: 0.75rem;">✓ Optional prayer moment</li>
+          </ul>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98)); padding: 2rem; border-radius: 12px; border: 2px solid rgba(212, 175, 55, 0.2);">
+          <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent-gold);">Faith & Fire Experience</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.75rem;">✓ Two to three sessions</li>
+            <li style="margin-bottom: 0.75rem;">✓ Customized message</li>
+            <li style="margin-bottom: 0.75rem;">✓ Group prayer & activation</li>
+          </ul>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98)); padding: 2rem; border-radius: 12px; border: 2px solid rgba(212, 175, 55, 0.2);">
+          <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent-gold);">Community Takeover</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.75rem;">✓ Full-day presence</li>
+            <li style="margin-bottom: 0.75rem;">✓ Main + breakout sessions</li>
+            <li style="margin-bottom: 0.75rem;">✓ Outreach & prayer</li>
+          </ul>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98)); padding: 2rem; border-radius: 12px; border: 2px solid rgba(212, 175, 55, 0.2);">
+          <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent-gold);">STR8 Partnership</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.75rem;">✓ Monthly/quarterly ongoing</li>
+            <li style="margin-bottom: 0.75rem;">✓ Priority booking</li>
+            <li style="margin-bottom: 0.75rem;">✓ Leadership support</li>
+          </ul>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98)); padding: 2rem; border-radius: 12px; border: 2px solid rgba(212, 175, 55, 0.2);">
+          <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--accent-gold);">Youth & Schools Focus</h3>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 0.75rem;">✓ High-energy messaging</li>
+            <li style="margin-bottom: 0.75rem;">✓ Identity & purpose focus</li>
+            <li style="margin-bottom: 0.75rem;">✓ Interactive Q&A</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 5rem 0; background-color: var(--dark-bg);">
+    <div class="container" style="max-width: 800px;">
+      <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 2rem;">Booking <span class="gold-text">Form</span></h2>
+      <div style="width: 100px; height: 3px; background: var(--gold-gradient); margin: 0 auto 3rem;"></div>
+      
+      <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98)); padding: 3rem; border-radius: 12px; border: 2px solid rgba(212, 175, 55, 0.3);">
+        <form data-form-type="utility" action="https://metrowebsites.com/api/submit-form/" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="org_name" class="form-label">Organization Name *</label>
+            <input type="text" id="org_name" name="org_name" class="form-control" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="contact_name" class="form-label">Contact Name *</label>
+            <input type="text" id="contact_name" name="contact_name" class="form-control" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="email" class="form-label">Email Address *</label>
+            <input type="email" id="email" name="email" class="form-control" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="phone" class="form-label">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" class="form-control" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="event_date" class="form-label">Event Date *</label>
+            <input type="date" id="event_date" name="event_date" class="form-control" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="location" class="form-label">Event Location *</label>
+            <input type="text" id="location" name="location" class="form-control" placeholder="City, State" required />
+          </div>
+          
+          <div class="form-group">
+            <label for="audience_type" class="form-label">Audience Type *</label>
+            <select id="audience_type" name="audience_type" class="form-control" required>
+              <option value="">Select...</option>
+              <option value="church">Church/Ministry</option>
+              <option value="school">School/University</option>
+              <option value="business">Business/Corporate</option>
+              <option value="community">Community Event</option>
+              <option value="youth">Youth Event</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="package" class="form-label">Preferred Package</label>
+            <select id="package" name="package" class="form-control">
+              <option value="">Select a package...</option>
+              <option value="encouragement">Encouragement Impact</option>
+              <option value="faith_fire">Faith & Fire Experience</option>
+              <option value="takeover">Community Takeover</option>
+              <option value="partnership">STR8 Partnership</option>
+              <option value="youth">Youth & Schools Focus</option>
+              <option value="custom">Custom Package</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="expected_attendance" class="form-label">Expected Attendance</label>
+            <input type="number" id="expected_attendance" name="expected_attendance" class="form-control" placeholder="Approximate number" />
+          </div>
+          
+          <div class="form-group">
+            <label for="travel_needs" class="form-label">Travel & Lodging Needs</label>
+            <textarea id="travel_needs" name="travel_needs" class="form-control" placeholder="Please describe any travel or lodging requirements"></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="message" class="form-label">Additional Information *</label>
+            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your event, vision, and what you hope to accomplish" required></textarea>
+          </div>
+          
+          <div class="form-group" style="margin-bottom: 2rem;">
+            <label style="display: flex; align-items: flex-start; gap: 0.75rem; cursor: pointer;">
+              <input type="checkbox" name="agreement" required style="margin-top: 0.25rem;" />
+              <span style="font-size: 0.95rem; line-height: 1.6;">
+                I acknowledge that this is a booking inquiry and understand that availability and final details will be confirmed by the STR8 Positive Thinking team.
+              </span>
+            </label>
+          </div>
+          
+          <input type="hidden" name="form_name" value="STR8 Positive Thinking Booking Form" />
+          
+          <button type="submit" class="btn-primary" style="width: 100%;">
+            Submit Booking Request
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background-color: var(--dark-surface-2); padding: 3rem 0; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2);">
+    <div class="container">
+      <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+        <span class="gold-text" style="font-weight: 600;">STR8 POSITIVE THINKING</span>
+      </p>
+      <p style="color: var(--text-secondary);">
+        Questions? Email <a href="mailto:booking@str8positivethinking.com" style="color: var(--accent-gold); text-decoration: none;">booking@str8positivethinking.com</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

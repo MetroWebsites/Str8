@@ -1,0 +1,310 @@
+---
+import { Image } from 'astro:assets';
+import newLogo from '../assets/straight-positive-thinking-llc-01-3_nw_895cee9b.jpg';
+import founderImg from '../assets/1760991425081-0_nw_f2e7d512.jpg';
+import grinchImage from '../assets/1000005102_nw_1e15eeae.jpg';
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About - STR8 Positive Thinking | Spirit-Led Ministry</title>
+  <meta name="description" content="Learn about STR8 Positive Thinking's mission of Spirit-led encouragement, prayer, and authentic Christian testimony. Founded by Steven Jerome Bennett Jr." />
+  
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --gold-gradient: linear-gradient(135deg, #ffd700, #b8860b, #daa520);
+      --red-gradient: linear-gradient(135deg, #8b0000, #c00000, #ff0000);
+      --gold-glow: 0 0 15px rgba(255, 215, 0, 0.5);
+      --red-glow: 0 0 15px rgba(179, 0, 0, 0.5);
+      --dark-bg: #0a0a0a;
+      --dark-surface: #121212;
+      --dark-surface-2: #1a1a1a;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --accent-gold: #d4af37;
+      --accent-red: #b30000;
+      --border-radius: 8px;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+    
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    
+    .gold-text {
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    .red-text {
+      background: var(--red-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      background-color: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--accent-gold);
+    }
+    
+    section {
+      padding: 5rem 0;
+    }
+    
+    .hero-section {
+      min-height: 50vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(0, 0, 0, 0.95));
+      padding-top: 6rem;
+      position: relative;
+    }
+    
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      section { padding: 3rem 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-container">
+      <div class="logo-container">
+        <Image src={newLogo} alt="STR8 Positive Thinking Logo" width="50" height="50" style="filter: drop-shadow(var(--gold-glow));" />
+        <div style="font-weight: 800; font-size: 1.5rem;"><span class="gold-text">STR8</span> <span class="red-text">POSITIVE</span></div>
+      </div>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/info">Info</a>
+        <a href="/booking">Book</a>
+        <a href="/donate">Donate</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="container" style="text-align: center;">
+      <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1.5rem;">
+        <span class="gold-text" style="text-shadow: var(--gold-glow);">About</span> <span class="red-text" style="text-shadow: var(--red-glow);">STR8</span>
+      </h1>
+      <div style="width: 150px; height: 4px; background: var(--gold-gradient); margin: 1.5rem auto; border-radius: 2px;"></div>
+      <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto; color: rgba(255, 255, 255, 0.9);">
+        Spirit-Led Encouragement with Purpose
+      </p>
+    </div>
+  </section>
+
+  <section style="background-color: var(--dark-surface);">
+    <div class="container">
+      <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Our <span class="gold-text">Mission</span></h2>
+        <div style="width: 100px; height: 3px; background: var(--gold-gradient); margin: 0 auto 2.5rem;"></div>
+        
+        <p style="font-size: 1.2rem; line-height: 1.8; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9);">
+          STR8 Positive Thinking is a <strong>Spirit-led outreach</strong> focused on encouragement, prayer, and authentic Christian testimony.
+        </p>
+        
+        <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 2rem; color: var(--text-secondary);">
+          Founded by Steven Jerome Bennett Jr. — aka Stevie Da Troublemaker — the ministry exists to <strong>challenge fear, stir faith</strong>, and remind people that <strong>God is not finished with them</strong>.
+        </p>
+        
+        <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 2.5rem; color: var(--text-secondary);">
+          This is encouragement with purpose, rooted in Biblical truth and led by the Spirit.
+        </p>
+        
+        <p style="font-size: 1.5rem; font-weight: 600; color: var(--accent-gold); margin-bottom: 3rem;">
+          #GoJesus
+        </p>
+        
+        <div style="background: rgba(212, 175, 55, 0.1); border-left: 4px solid var(--accent-gold); padding: 2rem; border-radius: 8px; margin: 3rem 0; text-align: left;">
+          <p style="font-size: 1.2rem; font-style: italic; line-height: 1.8; color: rgba(255, 255, 255, 0.95);">
+            "Whatever is true, whatever is noble, whatever is right... think about such things."
+          </p>
+          <p style="font-size: 1rem; margin-top: 1rem; color: var(--accent-gold); font-weight: 600;">
+            — Philippians 4:8 (NIV)
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background-color: var(--dark-bg);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+        <div>
+          <Image src={grinchImage} alt="Steven Jerome Bennett Jr" style="border-radius: 12px; width: 100%; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5); border: 3px solid rgba(212, 175, 55, 0.3);" />
+        </div>
+        <div>
+          <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">About <span class="gold-text">Stevie</span></h2>
+          <div style="width: 80px; height: 3px; background: var(--gold-gradient); margin-bottom: 2rem;"></div>
+          
+          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+            I have three brothers and a sister. Growing up, we experienced life differently from all points of view. Each of us handled life's situations, whether good or bad, in our own unique ways.
+          </p>
+          
+          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1.5rem;">
+            For me, it always felt like there needed to be more positivity in the world – in our lives, in the situations we faced. As I got older and embraced Christianity, it became a significant part of my identity. It's something I feel called to spread, this positivity that's been with me all along.
+          </p>
+          
+          <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+            I want to take my family on this journey with me, supporting them as they discover their own paths and what God has in store for them.
+          </p>
+          
+          <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); padding: 1.5rem; border-radius: 8px; border-left: 4px solid var(--accent-red);">
+            <p style="font-size: 1rem; font-weight: 600; color: var(--accent-gold); margin-bottom: 0.5rem;">
+              aka Stevie Da Troublemaker
+            </p>
+            <p style="font-size: 0.95rem; color: rgba(255, 255, 255, 0.8);">
+              Licensed and ordained minister
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background-color: var(--dark-surface); text-align: center;">
+    <div class="container">
+      <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Focus <span class="gold-text">Areas</span></h2>
+      <div style="width: 100px; height: 3px; background: var(--gold-gradient); margin: 0 auto 3rem;"></div>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto;">
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); padding: 2rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">✝️</div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--accent-gold);">Encouragement</h3>
+          <p style="color: var(--text-secondary);">Uplifting individuals through faith-based support</p>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); padding: 2rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">📖</div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--accent-gold);">Biblical Truth</h3>
+          <p style="color: var(--text-secondary);">Positivity rooted in Scripture</p>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); padding: 2rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">🙏</div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--accent-gold);">Prayer & Growth</h3>
+          <p style="color: var(--text-secondary);">Spiritual development and intercession</p>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); padding: 2rem; border-radius: 12px; border: 1px solid rgba(212, 175, 55, 0.2);">
+          <div style="font-size: 2.5rem; margin-bottom: 1rem;">💬</div>
+          <h3 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--accent-gold);">Authentic Testimony</h3>
+          <p style="color: var(--text-secondary);">Real-life Christian witness</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background-color: var(--dark-bg);">
+    <div class="container" style="max-width: 900px; text-align: center;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Spiritual <span class="gold-text">Covering</span></h2>
+      <div style="width: 100px; height: 3px; background: var(--gold-gradient); margin: 0 auto 2.5rem;"></div>
+      
+      <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 2rem; color: rgba(255, 255, 255, 0.9);">
+        STR8 Positive Thinking functions in spiritual alignment and accountability with:
+      </p>
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0;">
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); padding: 2rem; border-radius: 12px; border: 2px solid rgba(212, 175, 55, 0.3);">
+          <h3 style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.5rem;">Strong Tower Ministries</h3>
+        </div>
+        
+        <div style="background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(18, 18, 18, 0.95)); padding: 2rem; border-radius: 12px; border: 2px solid rgba(212, 175, 55, 0.3);">
+          <h3 style="font-size: 1.5rem; color: var(--accent-gold); margin-bottom: 0.5rem;">New Life Kingdom Assembly</h3>
+          <p style="font-size: 0.95rem; color: var(--text-secondary);">of Churches International</p>
+        </div>
+      </div>
+      
+      <div style="background: rgba(0, 0, 0, 0.3); border-left: 4px solid var(--accent-gold); padding: 1.5rem; border-radius: 8px; margin-top: 3rem; text-align: left;">
+        <p style="font-size: 1rem; color: rgba(255, 255, 255, 0.8);">
+          <strong>Credentials and bylaws available upon request</strong>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer style="background-color: var(--dark-surface-2); padding: 3rem 0; text-align: center; border-top: 1px solid rgba(212, 175, 55, 0.2);">
+    <div class="container">
+      <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+        <span class="gold-text" style="font-weight: 600;">STR8 POSITIVE THINKING</span>
+      </p>
+      <p style="color: var(--text-secondary);">
+        &copy; {new Date().getFullYear()} All rights reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
