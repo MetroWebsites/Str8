@@ -1050,6 +1050,51 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           mobileMenu?.classList.remove('open');
         });
       });
+      
+      // Contact form handler - opens mail client with form data
+      const contactForm = document.getElementById('contactForm');
+      contactForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const subject = document.getElementById('subject').value;
+        const message = document.getElementById('message').value;
+        
+        // Build email body with form data
+        const emailBody = `
+Contact Form Submission from Str8 Positive Thinking Website
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Name: ${name}
+
+Email: ${email}
+
+Subject: ${subject}
+
+Message:
+${message}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+This message was sent from the contact form at str8positivethinking.com
+        `.trim();
+        
+        // Encode the email body for URL
+        const encodedBody = encodeURIComponent(emailBody);
+        const encodedSubject = encodeURIComponent(`Contact Form: ${subject}`);
+        
+        // Create mailto link with recipient, subject, and body
+        const mailtoLink = `mailto:info@str8positivethinking.com?subject=${encodedSubject}&body=${encodedBody}`;
+        
+        // Open the user's mail client
+        window.location.href = mailtoLink;
+        
+        // Optional: Reset the form after a short delay
+        setTimeout(() => {
+          contactForm.reset();
+        }, 1000);
+      });
     });
   </script>
 </head>
@@ -1420,7 +1465,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         
         <div class="contact-form">
           <h3 style="font-size: 2rem; margin-bottom: 1.5rem;"><span class="gradient-text">Send a Message</span></h3>
-          <form data-form-type="utility" action="https://metrowebsites.com/api/submit-form/" method="POST" enctype="multipart/form-data">
+          <form id="contactForm">
             <div class="form-group">
               <label for="name" class="form-label">Your Name</label>
               <input type="text" id="name" name="name" class="form-control" required placeholder="Enter your name" />
@@ -1440,8 +1485,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
               <label for="message" class="form-label">Message</label>
               <textarea id="message" name="message" class="form-control" required placeholder="Tell us about your event, question, or request"></textarea>
             </div>
-            
-            <input type="hidden" name="form_name" value="Str8 Positive Contact Form" />
             
             <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
