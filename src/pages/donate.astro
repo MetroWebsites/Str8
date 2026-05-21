@@ -23,17 +23,17 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   
   <style>
     :root {
-      --gold-gradient: linear-gradient(135deg, #ffd700, #b8860b, #daa520);
-      --red-gradient: linear-gradient(135deg, #8b0000, #c00000, #ff0000);
-      --gold-glow: 0 0 15px rgba(255, 215, 0, 0.5);
-      --red-glow: 0 0 15px rgba(179, 0, 0, 0.5);
+      --gold-gradient: linear-gradient(135deg, #5debdd, #3db8ac);
+      --red-gradient: linear-gradient(135deg, #5debdd, #7ff5ec);
+      --gold-glow: 0 0 15px rgba(93, 235, 221, 0.5);
+      --red-glow: 0 0 15px rgba(93, 235, 221, 0.4);
       --dark-bg: #0a0a0a;
       --dark-surface: #121212;
       --dark-surface-2: #1a1a1a;
       --text-primary: #ffffff;
       --text-secondary: rgba(255, 255, 255, 0.7);
-      --accent-gold: #d4af37;
-      --accent-red: #b30000;
+      --accent-gold: #5debdd;
+      --accent-red: #3db8ac;
       --border-radius: 8px;
     }
     
@@ -132,7 +132,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     
     .hero-section {
-      min-height: 60vh;
+      min-height: 40vh;
       display: flex;
       align-items: center;
       background: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(0, 0, 0, 0.95));
@@ -176,27 +176,27 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     
     .btn-primary {
       background: var(--gold-gradient);
-      color: #000;
-      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      color: #0a0a0a;
+      box-shadow: 0 4px 15px rgba(93, 235, 221, 0.3);
     }
     
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+      box-shadow: 0 6px 20px rgba(93, 235, 221, 0.5);
     }
     
     .donation-card {
       background: linear-gradient(145deg, rgba(26, 26, 26, 0.95), rgba(18, 18, 18, 0.98));
       border-radius: 12px;
       padding: 3rem;
-      border: 2px solid rgba(212, 175, 55, 0.3);
+      border: 2px solid rgba(93, 235, 221, 0.3);
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
       margin: 2rem auto;
       max-width: 800px;
     }
     
     .info-box {
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(93, 235, 221, 0.05);
       border-left: 4px solid var(--accent-gold);
       padding: 1.5rem;
       margin: 2rem 0;
@@ -221,6 +221,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/info">Info</a>
+        <a href="/team">Team</a>
         <a href="/booking">Book</a>
         <a href="/donate">Donate</a>
       </nav>

@@ -1,0 +1,532 @@
+---
+import { Image } from 'astro:assets';
+import newLogo from '../assets/straight-positive-thinking-llc-01-3_nw_895cee9b.jpg';
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meet the Team - STR8 Positive Thinking</title>
+  <meta name="description" content="Meet the founders, board of directors, and board members behind STR8 Positive Thinking." />
+  
+  <link rel="canonical" href={canonicalURL} />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --neon: #5debdd;
+      --neon-dark: #3db8ac;
+      --neon-glow: 0 0 18px rgba(93, 235, 221, 0.45);
+      --dark-bg: #0a0a0a;
+      --dark-surface: #111111;
+      --dark-surface-2: #191919;
+      --text-primary: #ffffff;
+      --text-secondary: rgba(255, 255, 255, 0.7);
+      --border-color: rgba(93, 235, 221, 0.18);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--dark-bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 1rem 0;
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      text-decoration: none;
+    }
+
+    .logo-title {
+      font-weight: 800;
+      font-size: 1.4rem;
+    }
+
+    .neon-text {
+      background: linear-gradient(135deg, #5debdd, #3db8ac);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      margin-left: 2rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover { color: var(--neon); }
+
+    /* ---------- HERO ---------- */
+    .page-hero {
+      min-height: 36vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 6rem;
+      padding-bottom: 2.5rem;
+      text-align: center;
+      background: radial-gradient(circle at 50% 60%, rgba(93,235,221,0.08) 0%, transparent 65%);
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      margin-bottom: 1rem;
+    }
+
+    .divider {
+      width: 90px;
+      height: 4px;
+      background: linear-gradient(90deg, #5debdd, #3db8ac);
+      margin: 1rem auto 1.25rem;
+      border-radius: 2px;
+      box-shadow: var(--neon-glow);
+    }
+
+    .page-hero p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* ---------- SECTIONS ---------- */
+    .team-section {
+      padding: 3.5rem 0;
+    }
+
+    .team-section:nth-child(even) {
+      background: var(--dark-surface);
+    }
+
+    .section-label {
+      display: inline-block;
+      background: linear-gradient(135deg, #5debdd, #3db8ac);
+      color: #0a0a0a;
+      font-weight: 700;
+      font-size: 0.78rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ---------- CARDS ---------- */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2.5rem;
+    }
+
+    .member-card {
+      background: var(--dark-surface-2);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 2rem 1.75rem;
+      transition: all 0.35s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .member-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #5debdd, #3db8ac);
+      transform: scaleX(0);
+      transition: transform 0.35s ease;
+      transform-origin: left;
+    }
+
+    .member-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(93,235,221,0.4);
+      box-shadow: var(--neon-glow), 0 12px 32px rgba(0,0,0,0.45);
+    }
+
+    .member-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    /* Photo placeholder */
+    .photo-placeholder {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(93,235,221,0.15), rgba(61,184,172,0.08));
+      border: 2px dashed rgba(93,235,221,0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-placeholder svg {
+      opacity: 0.45;
+      color: #5debdd;
+    }
+
+    .photo-coming-soon {
+      font-size: 0.6rem;
+      color: rgba(93,235,221,0.6);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+    }
+
+    .member-name {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      text-align: center;
+      color: #fff;
+    }
+
+    .member-role {
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-align: center;
+      color: #5debdd;
+      margin-bottom: 0.75rem;
+    }
+
+    .member-note {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      text-align: center;
+      line-height: 1.6;
+    }
+
+    /* Founder card - slightly larger */
+    .founder-card {
+      max-width: 340px;
+    }
+
+    .founder-card .photo-placeholder {
+      width: 110px;
+      height: 110px;
+    }
+
+    .founder-card .member-name {
+      font-size: 1.35rem;
+    }
+
+    /* "More coming soon" notice */
+    .more-notice {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--dark-surface);
+      border-top: 1px solid var(--border-color);
+      padding: 2.5rem 0;
+      text-align: center;
+    }
+
+    footer p { color: var(--text-secondary); font-size: 0.95rem; }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 768px) {
+      nav { display: none; }
+      .cards-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="/" class="logo-wrap">
+        <Image src={newLogo} alt="STR8 Positive Thinking Logo" width="44" height="44"
+               style="border-radius:50%; border:2px solid #5debdd; box-shadow:0 0 12px rgba(93,235,221,0.35);" />
+        <div class="logo-title">
+          <span class="neon-text">STR8</span> POSITIVE
+        </div>
+      </a>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/info">Info</a>
+        <a href="/team" style="color:#5debdd;">Team</a>
+        <a href="/booking">Book</a>
+        <a href="/donate">Donate</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Page Hero -->
+  <div class="page-hero">
+    <div>
+      <h1><span class="neon-text">Meet the Team</span></h1>
+      <div class="divider"></div>
+      <p>The people behind STR8 Positive Thinking — Spirit-led, faith-driven, community-focused.</p>
+    </div>
+  </div>
+
+  <!-- ── FOUNDERS ── -->
+  <section class="team-section">
+    <div class="container">
+      <span class="section-label">Founders</span>
+      <h2 class="section-title">Leadership &amp; Vision</h2>
+      <p style="color:var(--text-secondary); max-width:650px;">
+        The founding hearts behind STR8 Positive Thinking — building a ministry rooted in faith, family, and real-life encouragement.
+      </p>
+
+      <div class="cards-grid" style="justify-items:center;">
+        <!-- Stevie -->
+        <div class="member-card founder-card">
+          <div class="photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="photo-coming-soon">Photo Soon</span>
+          </div>
+          <div class="member-name">Steven Jerome Bennett Jr.</div>
+          <div class="member-role">Co-Founder &amp; Licensed Minister</div>
+          <div class="member-note">
+            aka <em>Stevie Da Troublemaker</em> — Spirit-led speaker, Christian rap artist, and the driving vision behind STR8 Positive Thinking.
+            Licensed and ordained minister under New Life Kingdom Assembly and Strong Tower Ministries.
+            <br /><br />
+            <span style="color:#5debdd; font-weight:600;">#GoJesus</span>
+          </div>
+        </div>
+
+        <!-- Julia -->
+        <div class="member-card founder-card">
+          <div class="photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="photo-coming-soon">Photo Soon</span>
+          </div>
+          <div class="member-name">Julia Bennett</div>
+          <div class="member-role">Co-Founder</div>
+          <div class="member-note">
+            Co-Founder of STR8 Positive Thinking. Standing alongside the mission with faith, love, and purpose — helping build something that truly makes a difference.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BOARD OF DIRECTORS ── -->
+  <section class="team-section">
+    <div class="container">
+      <span class="section-label">Board of Directors</span>
+      <h2 class="section-title">Governance &amp; Direction</h2>
+      <p style="color:var(--text-secondary); max-width:650px;">
+        Our board brings leadership, wisdom, and accountability to guide the ministry forward.
+      </p>
+
+      <div class="cards-grid">
+        <!-- Tony -->
+        <div class="member-card">
+          <div class="photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="photo-coming-soon">Photo Soon</span>
+          </div>
+          <div class="member-name">Tony Marks</div>
+          <div class="member-role">CEO</div>
+          <div class="member-note">Providing executive leadership and organizational vision for STR8 Positive Thinking.</div>
+        </div>
+
+        <!-- Jaylen -->
+        <div class="member-card">
+          <div class="photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="photo-coming-soon">Photo Soon</span>
+          </div>
+          <div class="member-name">Jaylen</div>
+          <div class="member-role">CEO</div>
+          <div class="member-note">Co-leading executive strategy and operations to expand the ministry's reach and impact.</div>
+        </div>
+
+        <!-- Steve Sr. -->
+        <div class="member-card">
+          <div class="photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="photo-coming-soon">Photo Soon</span>
+          </div>
+          <div class="member-name">Steve Bennett Sr.</div>
+          <div class="member-role">Board Member</div>
+          <div class="member-note">A pillar of family faith — bringing wisdom, experience, and steady support to the ministry's foundation.</div>
+        </div>
+
+        <!-- Sandy -->
+        <div class="member-card">
+          <div class="photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="photo-coming-soon">Photo Soon</span>
+          </div>
+          <div class="member-name">Sandy Bennett</div>
+          <div class="member-role">Director of Ministries</div>
+          <div class="member-note">Overseeing ministry operations, spiritual programming, and community outreach initiatives.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BOARD MEMBERS ── -->
+  <section class="team-section">
+    <div class="container">
+      <span class="section-label">Board Members</span>
+      <h2 class="section-title">Advisory &amp; Support</h2>
+      <p style="color:var(--text-secondary); max-width:650px;">
+        Dedicated individuals who help shape, advise, and strengthen the work of STR8 Positive Thinking.
+      </p>
+
+      <div class="cards-grid">
+        <!-- Matthew -->
+        <div class="member-card">
+          <div class="photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="photo-coming-soon">Photo Soon</span>
+          </div>
+          <div class="member-name">Matthew Bennett</div>
+          <div class="member-role">Board Member</div>
+          <div class="member-note">Supporting the ministry's mission with commitment, faith, and a servant's heart.</div>
+        </div>
+
+        <!-- Gary -->
+        <div class="member-card">
+          <div class="photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="photo-coming-soon">Photo Soon</span>
+          </div>
+          <div class="member-name">Gary Denson</div>
+          <div class="member-role">Board Member</div>
+          <div class="member-note">Bringing valuable perspective and support to help guide STR8 Positive Thinking's growth.</div>
+        </div>
+
+        <!-- Marcus -->
+        <div class="member-card">
+          <div class="photo-placeholder">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+            <span class="photo-coming-soon">Photo Soon</span>
+          </div>
+          <div class="member-name">Marcus Davenport</div>
+          <div class="member-role">Board Member</div>
+          <div class="member-note">Committed to the mission of faith-rooted encouragement and making a lasting community impact.</div>
+        </div>
+      </div>
+
+      <p class="more-notice">More team members will be added soon. #GoJesus 🙏</p>
+    </div>
+  </section>
+
+  <!-- ── JOIN CTA ── -->
+  <section class="team-section" style="background:var(--dark-bg); text-align:center;">
+    <div class="container" style="max-width:700px;">
+      <div style="font-size:3rem; margin-bottom:1rem;">✝️</div>
+      <h2 style="font-size:2rem; margin-bottom:1rem;"><span class="neon-text">Want to Get Involved?</span></h2>
+      <div class="divider"></div>
+      <p style="font-size:1.1rem; color:var(--text-secondary); margin-bottom:2rem; line-height:1.8;">
+        STR8 Positive Thinking is always looking for Spirit-led people to join the movement — media, events, prayer, design, outreach, and more.
+      </p>
+      <a href="/#contact" style="display:inline-flex; align-items:center; gap:0.6rem; background:linear-gradient(135deg,#5debdd,#3db8ac); color:#0a0a0a; font-weight:700; padding:0.9rem 2.2rem; border-radius:50px; text-decoration:none; font-size:1rem; box-shadow:0 0 18px rgba(93,235,221,0.35); transition:all 0.3s ease;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="m16 11 2 2 4-4"/></svg>
+        Contact Us to Get Involved
+      </a>
+      <p style="margin-top:1.5rem; color:var(--text-secondary); font-size:0.95rem; font-style:italic;">aka Stevie Da Troublemaker &mdash; #GoJesus 🙏🔥</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p style="margin-bottom:0.5rem;">
+        <span class="neon-text" style="font-weight:700; font-size:1.1rem;">STR8 POSITIVE THINKING</span>
+      </p>
+      <p>Spirit-Led Encouragement with Purpose &mdash; <a href="/" style="color:#5debdd; text-decoration:none;">Back to Home</a></p>
+      <p style="margin-top:0.75rem;">&copy; {new Date().getFullYear()} STR8 Positive Thinking. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
