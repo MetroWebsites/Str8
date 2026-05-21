@@ -176,7 +176,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     
     section {
-      padding: 4rem 0;
+      padding: 3rem 0;
       position: relative;
       overflow-x: hidden;
       width: 100%;
@@ -237,16 +237,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     
     .logo-img {
-      width: 45px;
-      height: 45px;
+      width: 58px;
+      height: 58px;
       border-radius: 50%;
       border: 2px solid var(--primary-gold);
       box-shadow: var(--glow-gold);
-    }
-    
-    .logo-text {
-      font-size: 1.5rem;
-      font-weight: 800;
     }
     
     nav {
@@ -293,9 +288,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       padding: 0.5rem;
     }
     
+    /* Services 4-col grid */
+    .services-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.25rem;
+    }
+    @media (max-width: 900px) {
+      .services-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+    }
+    @media (max-width: 480px) {
+      .services-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+    }
+
     /* Hero Section */
     .hero {
-      min-height: 100vh;
+      min-height: 88vh;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -323,45 +331,35 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       animation: fadeInUp 1s ease-out;
     }
     
-    .hero-logo {
-      width: 200px;
-      height: 200px;
-      margin: 0 auto 2rem;
-      border-radius: 50%;
-      border: 3px solid var(--primary-gold);
-      box-shadow: var(--glow-gold), var(--shadow-xl);
-      animation: float 6s ease-in-out infinite;
-    }
-    
     .hero h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      margin-bottom: 1rem;
+      font-size: clamp(2rem, 7vw, 4.5rem);
+      margin-bottom: 0.75rem;
       line-height: 1.1;
     }
     
     .hero h2 {
-      font-size: clamp(1.5rem, 4vw, 2.5rem);
-      margin-bottom: 1rem;
+      font-size: clamp(1.1rem, 3.5vw, 2rem);
+      margin-bottom: 0.75rem;
       font-weight: 600;
     }
     
     .hero p {
-      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-size: clamp(0.9rem, 2.5vw, 1.1rem);
       color: var(--text-secondary);
-      margin-bottom: 1rem;
+      margin-bottom: 0.6rem;
     }
     
     .hero .tagline {
-      font-size: clamp(1.1rem, 3.5vw, 1.4rem);
+      font-size: clamp(1rem, 3vw, 1.25rem);
       color: var(--text-primary);
       font-weight: 600;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
     
     /* Buttons */
     .btn-group {
       display: flex;
-      gap: 1.5rem;
+      gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
     }
@@ -370,7 +368,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       display: inline-flex;
       align-items: center;
       gap: 0.75rem;
-      padding: 1rem 2rem;
+      padding: 0.85rem 1.75rem;
       font-weight: 600;
       font-size: 1rem;
       text-decoration: none;
@@ -406,25 +404,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     /* Section Heading */
     .section-heading {
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 1.75rem;
     }
     
     .section-heading h2 {
-      font-size: clamp(2.5rem, 6vw, 4rem);
-      margin-bottom: 1rem;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      margin-bottom: 0.6rem;
     }
     
     .section-heading .divider {
-      width: 100px;
-      height: 4px;
+      width: 80px;
+      height: 3px;
       background: linear-gradient(90deg, var(--primary-gold), var(--secondary-gold));
-      margin: 1rem auto;
+      margin: 0.6rem auto 0.8rem;
       border-radius: 2px;
       box-shadow: var(--glow-gold);
     }
     
     .section-heading p {
-      font-size: 1.25rem;
+      font-size: 1rem;
       color: var(--text-secondary);
       max-width: 700px;
       margin: 0 auto;
@@ -445,8 +443,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .service-card {
       background: var(--bg-light);
       border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 2.5rem;
+      border-radius: 16px;
+      padding: 1.5rem;
       transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
       position: relative;
       overflow: hidden;
@@ -475,14 +473,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     
     .service-icon {
-      width: 60px;
-      height: 60px;
+      width: 48px;
+      height: 48px;
       background: linear-gradient(135deg, var(--primary-gold), var(--secondary-gold));
-      border-radius: 15px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       box-shadow: var(--glow-gold);
     }
     
@@ -491,16 +489,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     
     .service-card h3 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      margin-bottom: 0.6rem;
       color: var(--text-primary);
     }
     
     .service-card p {
       color: var(--text-secondary);
-      font-size: 1.05rem;
-      line-height: 1.7;
-      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
     }
     
     .service-link {
@@ -965,12 +963,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
       
       .container {
-        padding: 0 1rem;
+        padding: 0 0.85rem;
         max-width: 100%;
       }
       
       section {
-        padding: 3rem 0;
+        padding: 2rem 0;
         overflow-x: hidden;
       }
       
@@ -982,15 +980,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         display: block;
       }
       
+      .hero {
+        min-height: 75vh;
+        padding-top: 4rem;
+      }
+
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
       }
       
       .section-heading h2 {
-        font-size: 2rem;
+        font-size: 1.5rem !important;
+      }
+
+      .section-heading p {
+        font-size: 0.9rem !important;
       }
       
-      .services-grid,
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+      .services-grid-4 {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.75rem !important;
+      }
       .testimonials-grid,
       .images-grid {
         grid-template-columns: 1fr;
@@ -1004,6 +1017,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .btn {
         width: 100%;
         justify-content: center;
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
       }
       
       /* Fix any wide elements */
@@ -1029,29 +1044,65 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       
       section [style*="grid-template-columns: 1fr 1fr"] > * {
         width: 100% !important;
-        margin-bottom: 2rem;
+        margin-bottom: 1.25rem;
       }
       
       /* Fix gap issues */
       [style*="gap: 4rem"] {
-        gap: 2rem !important;
+        gap: 1.5rem !important;
       }
       
       /* Adjust text sizes */
-      h1 {
-        font-size: clamp(2rem, 8vw, 3rem) !important;
-      }
-      
       h2 {
-        font-size: clamp(1.75rem, 6vw, 2.5rem) !important;
+        font-size: clamp(1.4rem, 5vw, 2rem) !important;
       }
       
       h3 {
-        font-size: clamp(1.5rem, 5vw, 2rem) !important;
+        font-size: clamp(1.1rem, 4vw, 1.5rem) !important;
       }
       
       p {
-        font-size: clamp(1rem, 4vw, 1.15rem) !important;
+        font-size: 0.9rem !important;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2,1fr);
+        gap: 1rem;
+      }
+
+      .stat-item h3 {
+        font-size: 2.5rem;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .footer-grid {
+        gap: 1.5rem;
+      }
+
+      footer {
+        padding: 2rem 0 1rem;
+      }
+
+      .service-card h3 {
+        font-size: 0.9rem !important;
+      }
+
+      .service-card p {
+        font-size: 0.8rem !important;
+      }
+
+      .service-icon {
+        width: 38px;
+        height: 38px;
       }
     }
     
@@ -1186,14 +1237,12 @@ This message was sent from the contact form at str8positivethinking.com
   <!-- Header -->
   <header>
     <div class="container header-content">
-      <div class="logo-container">
-        <Image src={newLogo} alt="Str8 Positive Thinking Logo" width="45" height="45" class="logo-img" />
-        <div class="logo-text">
-          <span class="gradient-text">STR8</span> <span class="gradient-text-red">POSITIVE</span>
-        </div>
-      </div>
+      <a href="/" style="display:flex;align-items:center;text-decoration:none;">
+        <Image src={newLogo} alt="Str8 Positive Thinking Logo" width="58" height="58" class="logo-img" />
+      </a>
       <nav>
         <a href="/">Home</a>
+        <a href="/services">Services</a>
         <a href="/info">Info</a>
         <a href="/team">Team</a>
         <a href="/booking">Book</a>
@@ -1212,6 +1261,7 @@ This message was sent from the contact form at str8positivethinking.com
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
     <a href="/">Home</a>
+    <a href="/services">Services</a>
     <a href="/info">Info</a>
     <a href="/team">Team</a>
     <a href="/booking">Book</a>
@@ -1223,7 +1273,6 @@ This message was sent from the contact form at str8positivethinking.com
   <section class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="container hero-content">
-      <Image src={newLogo} alt="Str8 Positive Thinking Logo" width="200" height="200" class="hero-logo" />
       <h1><span class="gradient-text">STR8 Positive Thinking</span></h1>
       <h2><span class="gradient-text-red">Spirit-Led Encouragement with Purpose</span></h2>
       <p>Founded by Steven Jerome Bennett Jr.</p>
@@ -1248,57 +1297,61 @@ This message was sent from the contact form at str8positivethinking.com
       <div class="section-heading">
         <h2>Our <span class="gradient-text">Services</span></h2>
         <div class="divider"></div>
-        <p>Empowering individuals and groups through positive motivation and personalized encouragement for transformative growth</p>
+        <p>Spirit-led encouragement, speaking, and outreach for every setting</p>
       </div>
       
-      <div class="services-grid">
+      <div class="services-grid-4">
         <div class="service-card">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
           </div>
           <h3>Wedding Ceremonies</h3>
-          <p>Ordained minister available to officiate your wedding ceremony. Bring positive energy, faith, and joy to your special day with a personalized ceremony that reflects your love story.</p>
-          <a href="#weddings" class="service-link">
+          <p>Ordained minister officiating faith-filled, personalized ceremonies.</p>
+          <a href="/services/wedding-ceremonies" class="service-link">
             Learn More
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
         </div>
         
         <div class="service-card">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><path d="M12 19v3"/></svg>
           </div>
           <h3>Motivational Speaking</h3>
-          <p>Inspire your audience with powerful talks that encourage positive thinking and personal growth. Available for schools, churches, businesses, and community events.</p>
-          <a href="#contact" class="service-link">
+          <p>Powerful talks for schools, churches, businesses &amp; communities.</p>
+          <a href="/services/motivational-speaking" class="service-link">
             Book Now
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
         </div>
         
         <div class="service-card">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.25 10c0 .966-.896 1.75-2 1.75s-2-.784-2-1.75.896-1.75 2-1.75 2 .784 2 1.75Z"/><path d="M15 15.25c1.864 0 3.736.095 5.274.773.962.425 1.726 1.133 1.726 2.227v1m-14 0v-1c0-1.094.764-1.802 1.726-2.227 1.538-.678 3.41-.773 5.274-.773"/><path d="M21 2.5V10l-2-1-2 1V2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5Z"/><path d="M7 2h0a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h0a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.25 10c0 .966-.896 1.75-2 1.75s-2-.784-2-1.75.896-1.75 2-1.75 2 .784 2 1.75Z"/><path d="M15 15.25c1.864 0 3.736.095 5.274.773.962.425 1.726 1.133 1.726 2.227v1m-14 0v-1c0-1.094.764-1.802 1.726-2.227 1.538-.678 3.41-.773 5.274-.773"/><path d="M21 2.5V10l-2-1-2 1V2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5Z"/><path d="M7 2h0a5 5 0 0 1 5 5v2a5 5 0 0 1-5 5h0a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z"/></svg>
           </div>
-          <h3>Encouragement & Support</h3>
-          <p>Personalized encouragement for those facing difficult life circumstances. We provide faith-based support to help you navigate challenges with a positive mindset.</p>
-          <a href="#contact" class="service-link">
+          <h3>Encouragement &amp; Support</h3>
+          <p>Faith-based support for those navigating difficult life seasons.</p>
+          <a href="/services/encouragement-support" class="service-link">
             Learn More
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
         </div>
         
         <div class="service-card">
           <div class="service-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.287L12 21l1.9-5.8a2 2 0 0 1 1.287-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.287Z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.287 1.288L3 12l5.8 1.9a2 2 0 0 1 1.288 1.287L12 21l1.9-5.8a2 2 0 0 1 1.287-1.288L21 12l-5.8-1.9a2 2 0 0 1-1.288-1.287Z"/></svg>
           </div>
           <h3>Youth Programs</h3>
-          <p>Special programs designed for young people to develop positive thinking habits early in life. Build resilience, confidence, and a growth mindset.</p>
-          <a href="#contact" class="service-link">
+          <p>High-energy programs building resilience, identity, and purpose.</p>
+          <a href="/services/youth-programs" class="service-link">
             Get Involved
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
           </a>
         </div>
+      </div>
+
+      <div style="text-align:center; margin-top:1.5rem;">
+        <a href="/services" class="btn btn-secondary" style="display:inline-flex;">View All Services →</a>
       </div>
     </div>
   </section>
@@ -1521,7 +1574,7 @@ This message was sent from the contact form at str8positivethinking.com
   </section>
   
   <!-- Join the Movement Section -->
-  <section style="background: var(--bg-dark); padding: 4rem 0;">
+  <section style="background: var(--bg-dark); padding: 3rem 0;">
     <div class="container">
       <div class="section-heading">
         <h2><span class="gradient-text">Join the Movement</span></h2>
@@ -1578,7 +1631,7 @@ This message was sent from the contact form at str8positivethinking.com
   </section>
   
   <!-- Support the Mission Section -->
-  <section style="background: var(--bg-darker); padding: 4rem 0;">
+  <section style="background: var(--bg-darker); padding: 3rem 0;">
     <div class="container">
       <div class="section-heading">
         <h2><span class="gradient-text">Support the Mission</span></h2>
@@ -1636,7 +1689,7 @@ This message was sent from the contact form at str8positivethinking.com
   </section>
   
   <!-- Kansas City 2026 Jersey Section -->
-  <section style="background: var(--bg-dark); padding: 4rem 0;">
+  <section style="background: var(--bg-dark); padding: 3rem 0;">
     <div class="container">
       <div style="text-align: center; max-width: 900px; margin: 0 auto;">
         <h2 style="font-size: 3rem; margin-bottom: 1rem;"><span class="gradient-text">Kansas City 2026</span></h2>
@@ -1659,22 +1712,14 @@ This message was sent from the contact form at str8positivethinking.com
   </section>
   
   <!-- Sponsors Section -->
-  <section style="background: var(--bg-darker); padding: 3rem 0;">
+  <section style="background: var(--bg-darker); padding: 2.5rem 0;">
     <div class="container">
       <div class="section-heading">
         <h2>Our <span class="gradient-text">Sponsors</span></h2>
         <div class="divider"></div>
       </div>
-      <div class="images-grid">
-        <div class="image-card">
-          <Image src={newSponsors} alt="Thank you to our sponsors" width="400" height="300" />
-        </div>
-        <div class="image-card">
-          <Image src={kcMailing} alt="More sponsors supporting our mission" width="400" height="300" />
-        </div>
-        <div class="image-card">
-          <Image src={billboardImage} alt="Even more sponsors supporting our mission" width="400" height="300" />
-        </div>
+      <div style="width:100%; border-radius:20px; overflow:hidden; border:1px solid var(--border-color); box-shadow:var(--shadow-xl);">
+        <Image src={sponsors2} alt="Thank you to our sponsors" width="1200" height="500" style="width:100%; height:auto; display:block; object-fit:cover;" />
       </div>
     </div>
   </section>
@@ -1788,7 +1833,7 @@ This message was sent from the contact form at str8positivethinking.com
           <h4 class="footer-heading">Quick Links</h4>
           <div class="footer-links">
             <a href="#home">Home</a>
-            <a href="#services">Services</a>
+            <a href="/services">All Services</a>
             <a href="#about">About Us</a>
             <a href="/team">Meet the Team</a>
             <a href="#testimonials">Testimonials</a>

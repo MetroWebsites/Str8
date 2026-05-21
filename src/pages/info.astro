@@ -120,11 +120,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     
     section {
-      padding: 5rem 0;
+      padding: 2.5rem 0;
     }
     
     .hero-section {
-      min-height: 50vh;
+      min-height: 32vh;
       display: flex;
       align-items: center;
       background: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(0, 0, 0, 0.95));
@@ -134,7 +134,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     
     @media (max-width: 768px) {
       .nav-links { display: none; }
-      section { padding: 3rem 0; }
+      section { padding: 1.75rem 0; }
+      .hero-section { min-height: 26vh; padding-top: 5rem !important; padding-bottom: 1.5rem !important; }
+      h1 { font-size: clamp(1.8rem, 6vw, 2.5rem) !important; }
+      h2 { font-size: clamp(1.4rem, 5vw, 2rem) !important; }
+      p { font-size: 0.9rem !important; }
+      .container { padding: 0 0.85rem; }
     }
   </style>
 </head>
@@ -147,7 +152,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
       <nav class="nav-links">
         <a href="/">Home</a>
+        <a href="/services">Services</a>
         <a href="/info">Info</a>
+        <a href="/team">Team</a>
         <a href="/booking">Book</a>
         <a href="/donate">Donate</a>
       </nav>
