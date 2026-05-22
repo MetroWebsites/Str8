@@ -10,7 +10,7 @@ import logo2 from '../assets/straight-positive-thinking-llc-01-1_nw_fc974e40.jpg
 
 // New assets
 import newLogo from '../assets/straight-positive-thinking-llc-01-3_nw_895cee9b.jpg';
-import str8LogoNew from '../assets/str8-logo-new_nw_xqxTs01H.png';
+import str8LogoNew from '../assets/str8-logo-hq_nw_xqxTs01H.png';
 import newSponsors from '../assets/image000001_nw_8db8628c.jpg';
 import newTestimonial from '../assets/screenshot_20230123_060834_messenger-2_nw_aab24800.jpg';
 import kcMailing from '../assets/500272678_23967249526200867_2784044080589144156_n_nw_ca8b0c4e.jpg';
@@ -238,13 +238,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     
     .logo-img {
-      width: 140px;
-      height: 140px;
+      width: 200px;
+      height: auto;
       border-radius: 0;
       border: none;
       box-shadow: none;
       background: transparent;
       object-fit: contain;
+      display: block;
     }
     
     nav {
@@ -971,8 +972,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     
     @media (max-width: 768px) {
       .logo-img {
-        width: 72px;
-        height: 72px;
+        width: 90px;
+        height: auto;
       }
       html, body {
         overflow-x: hidden;
@@ -1256,7 +1257,7 @@ This message was sent from the contact form at str8positivethinking.com
   <header>
     <div class="container header-content">
       <a href="/" style="display:flex;align-items:center;text-decoration:none;">
-        <Image src={str8LogoNew} alt="STR8 Positive Thinking Logo" width="80" height="80" class="logo-img" />
+        <Image src={str8LogoNew} alt="STR8 Positive Thinking Logo" width="200" height="160" class="logo-img" />
       </a>
       <nav>
         <a href="/">Home</a>
@@ -1870,7 +1871,7 @@ This message was sent from the contact form at str8positivethinking.com
       <div class="footer-grid">
         <div class="footer-about">
           <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <Image src={str8LogoNew} alt="STR8 Positive Thinking Logo" width="48" height="48" style="object-fit:contain;background:transparent;" />
+            <Image src={str8LogoNew} alt="STR8 Positive Thinking Logo" width="80" height="64" style="object-fit:contain;background:transparent;height:auto;" />
             <div class="logo-text">
               <span class="gradient-text">STR8</span> <span class="gradient-text-red">POSITIVE</span>
             </div>
