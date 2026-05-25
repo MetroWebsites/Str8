@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import newLogo from '../assets/str8-logo-hq_nw_xqxTs01H.png';
+import newLogo from '../assets/str8-logo-hq-v2.png';
 import founderImg from '../assets/1760991425081-0_nw_f2e7d512.jpg';
 import grinchImage from '../assets/1000005102_nw_1e15eeae.jpg';
 
@@ -128,26 +128,39 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       display: flex;
       align-items: center;
       background: linear-gradient(135deg, rgba(10, 10, 10, 0.9), rgba(0, 0, 0, 0.95));
-      padding-top: 6rem;
+      padding-top: var(--header-h, 185px);
       position: relative;
     }
     
     @media (max-width: 768px) {
       .nav-links { display: none; }
       section { padding: 1.75rem 0; }
-      .hero-section { min-height: 26vh; padding-top: 5rem !important; padding-bottom: 1.5rem !important; }
+      .hero-section { min-height: 26vh; padding-top: var(--header-h, 110px) !important; padding-bottom: 1.5rem !important; }
       h1 { font-size: clamp(1.8rem, 6vw, 2.5rem) !important; }
       h2 { font-size: clamp(1.4rem, 5vw, 2rem) !important; }
       p { font-size: 0.9rem !important; }
       .container { padding: 0 0.85rem; }
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('header');
+      function syncHeaderHeight() {
+        if (header) {
+          const h = header.getBoundingClientRect().height;
+          document.documentElement.style.setProperty('--header-h', h + 'px');
+        }
+      }
+      syncHeaderHeight();
+      window.addEventListener('resize', syncHeaderHeight, { passive: true });
+    });
+  </script>
 </head>
 <body>
   <header>
     <div class="container header-container">
       <div class="logo-container">
-        <Image src={newLogo} alt="STR8 Positive Thinking Logo" width="160" height="128" style="width:120px;height:auto;object-fit:contain;display:block;" />
+        <Image src={newLogo} alt="STR8 Positive Thinking Logo" width="320" height="256" style="width:150px;height:auto;object-fit:contain;display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;" />
         <div style="font-weight: 800; font-size: 1.5rem;"><span class="gold-text">STR8</span> <span class="red-text">POSITIVE</span></div>
       </div>
       <nav class="nav-links">

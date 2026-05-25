@@ -10,7 +10,7 @@ import logo2 from '../assets/straight-positive-thinking-llc-01-1_nw_fc974e40.jpg
 
 // New assets
 import newLogo from '../assets/straight-positive-thinking-llc-01-3_nw_895cee9b.jpg';
-import str8LogoNew from '../assets/str8-logo-hq_nw_xqxTs01H.png';
+import str8LogoNew from '../assets/str8-logo-hq-v2.png';
 import newSponsors from '../assets/image000001_nw_8db8628c.jpg';
 import newTestimonial from '../assets/screenshot_20230123_060834_messenger-2_nw_aab24800.jpg';
 import kcMailing from '../assets/500272678_23967249526200867_2784044080589144156_n_nw_ca8b0c4e.jpg';
@@ -243,7 +243,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
     
     .logo-img {
-      width: 200px;
+      width: 160px;
       height: auto;
       border-radius: 0;
       border: none;
@@ -252,10 +252,12 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       object-fit: contain;
       display: block;
       transition: width 0.35s ease;
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
     }
 
     header.scrolled .logo-img {
-      width: 110px;
+      width: 100px;
     }
     
     nav {
@@ -315,14 +317,13 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .services-grid-4 { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
     }
 
-    /* Hero Section */
+    /* Hero Section — padding-top is set dynamically via JS to match actual header height */
     .hero {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      /* padding-top pushes content below the tall fixed header (~220px logo + padding) */
-      padding-top: 240px;
+      padding-top: var(--header-h, 185px);
       padding-bottom: 3rem;
       position: relative;
       overflow: hidden;
@@ -984,14 +985,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     
     @media (max-width: 768px) {
       .logo-img {
-        width: 90px;
+        width: 80px;
         height: auto;
       }
       header.scrolled .logo-img {
-        width: 64px;
+        width: 60px;
       }
       .hero {
-        padding-top: 160px !important;
+        padding-top: var(--header-h, 120px) !important;
         min-height: auto !important;
         padding-bottom: 2.5rem;
       }
@@ -1021,7 +1022,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       
       .hero {
         min-height: 75vh;
-        padding-top: 4rem;
       }
 
       .hero h1 {
@@ -1199,6 +1199,16 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       const mobileMenu = document.querySelector('.mobile-menu');
       const closeMenuBtn = document.querySelector('.close-menu-btn');
       
+      // Set CSS var --header-h to actual header height so hero padding always matches
+      function syncHeaderHeight() {
+        if (header) {
+          const h = header.getBoundingClientRect().height;
+          document.documentElement.style.setProperty('--header-h', h + 'px');
+        }
+      }
+      syncHeaderHeight();
+      window.addEventListener('resize', syncHeaderHeight, { passive: true });
+
       // Header scroll effect — shrinks logo + padding when scrolled
       window.addEventListener('scroll', () => {
         if (window.scrollY > 60) {
@@ -1206,6 +1216,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         } else {
           header?.classList.remove('scrolled');
         }
+        // Re-sync after transition settles
+        setTimeout(syncHeaderHeight, 380);
       }, { passive: true });
       
       // Mobile menu toggle
@@ -1277,7 +1289,7 @@ This message was sent from the contact form at str8positivethinking.com
   <header>
     <div class="container header-content">
       <a href="/" style="display:flex;align-items:center;text-decoration:none;">
-        <Image src={str8LogoNew} alt="STR8 Positive Thinking Logo" width="200" height="160" class="logo-img" />
+        <Image src={str8LogoNew} alt="STR8 Positive Thinking Logo" width="320" height="256" class="logo-img" />
       </a>
       <nav>
         <a href="/">Home</a>
