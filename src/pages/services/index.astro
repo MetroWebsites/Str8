@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import newLogo from '../../assets/str8-logo-hq_nw_xqxTs01H.png';
+import newLogo from '../../assets/str8-logo-hq-v2.png';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const services = [
@@ -72,7 +72,7 @@ const services = [
 
     .divider { width:70px; height:3px; background:linear-gradient(90deg,#5debdd,#3db8ac); margin:0.6rem auto 0.8rem; border-radius:2px; box-shadow:var(--neon-glow); }
 
-    .page-hero { min-height:32vh; display:flex; align-items:center; justify-content:center; padding:6rem 0 2.5rem; text-align:center; background:radial-gradient(circle at 50% 60%, rgba(93,235,221,0.07) 0%, transparent 65%); }
+    .page-hero { min-height:32vh; display:flex; align-items:center; justify-content:center; padding-top:var(--header-h,185px); padding-bottom:2.5rem; padding-left:0; padding-right:0; text-align:center; background:radial-gradient(circle at 50% 60%, rgba(93,235,221,0.07) 0%, transparent 65%); }
     .page-hero h1 { font-size:clamp(2rem,6vw,3.5rem); margin-bottom:0.75rem; }
 
     .services-list { padding:3rem 0; }
@@ -116,14 +116,28 @@ const services = [
       nav { display:none; }
       .services-list { padding:2rem 0; }
       .service-row { padding:1.5rem 0; }
+      .page-hero { padding-top: var(--header-h, 110px); }
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('header');
+      function syncHeaderHeight() {
+        if (header) {
+          const h = header.getBoundingClientRect().height;
+          document.documentElement.style.setProperty('--header-h', h + 'px');
+        }
+      }
+      syncHeaderHeight();
+      window.addEventListener('resize', syncHeaderHeight, { passive: true });
+    });
+  </script>
 </head>
 <body>
   <header>
     <div class="container header-inner">
       <a href="/" class="logo-wrap">
-        <Image src={newLogo} alt="STR8 Positive Thinking" width="160" height="128" style="object-fit:contain;width:120px;height:auto;display:block;" />
+        <Image src={newLogo} alt="STR8 Positive Thinking" width="320" height="256" style="object-fit:contain;width:150px;height:auto;display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;" />
       </a>
       <nav>
         <a href="/">Home</a>

@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import newLogo from '../../assets/str8-logo-hq_nw_xqxTs01H.png';
+import newLogo from '../../assets/str8-logo-hq-v2.png';
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 <html lang="en">
@@ -24,7 +24,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     .header-inner { display:flex; justify-content:space-between; align-items:center; }
     nav a { color:var(--text-secondary); text-decoration:none; font-weight:500; font-size:0.9rem; margin-left:1.75rem; transition:color 0.3s; }
     nav a:hover, nav a.active { color:var(--neon); }
-    .hero { min-height:38vh; display:flex; align-items:center; justify-content:center; padding:6rem 0 2.5rem; text-align:center; background:radial-gradient(circle at 50% 60%, rgba(93,235,221,0.08) 0%, transparent 65%); }
+    .hero { min-height:38vh; display:flex; align-items:center; justify-content:center; padding-top:var(--header-h,185px);padding-bottom:2.5rem;padding-left:0;padding-right:0; text-align:center; background:radial-gradient(circle at 50% 60%, rgba(93,235,221,0.08) 0%, transparent 65%); }
     .hero h1 { font-size:clamp(2rem,6vw,3.5rem); margin-bottom:0.5rem; }
     .divider { width:70px; height:3px; background:linear-gradient(90deg,#5debdd,#3db8ac); margin:0.6rem auto 0.8rem; border-radius:2px; }
     .content { padding:3rem 0; }
@@ -64,12 +64,25 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .impact-stats { grid-template-columns:1fr 1fr; }
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('header');
+      function syncHeaderHeight() {
+        if (header) {
+          const h = header.getBoundingClientRect().height;
+          document.documentElement.style.setProperty('--header-h', h + 'px');
+        }
+      }
+      syncHeaderHeight();
+      window.addEventListener('resize', syncHeaderHeight, { passive: true });
+    });
+  </script>
 </head>
 <body>
   <header>
     <div class="container header-inner">
       <a href="/" style="display:flex;align-items:center;text-decoration:none;">
-        <Image src={newLogo} alt="STR8 Positive Thinking" width="160" height="128" style="object-fit:contain;width:120px;height:auto;display:block;" />
+        <Image src={newLogo} alt="STR8 Positive Thinking" width="320" height="256" style="object-fit:contain;width:150px;height:auto;display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;" />
       </a>
       <nav>
         <a href="/">Home</a>

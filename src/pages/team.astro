@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import newLogo from '../assets/str8-logo-hq_nw_xqxTs01H.png';
+import newLogo from '../assets/str8-logo-hq-v2.png';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
@@ -107,7 +107,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: 6rem;
+      padding-top: var(--header-h, 185px);
       padding-bottom: 2.5rem;
       text-align: center;
       background: radial-gradient(circle at 50% 60%, rgba(93,235,221,0.08) 0%, transparent 65%);
@@ -291,8 +291,22 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     @media (max-width: 768px) {
       nav { display: none; }
       .cards-grid { grid-template-columns: 1fr; }
+      .page-hero { padding-top: var(--header-h, 110px); }
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('header');
+      function syncHeaderHeight() {
+        if (header) {
+          const h = header.getBoundingClientRect().height;
+          document.documentElement.style.setProperty('--header-h', h + 'px');
+        }
+      }
+      syncHeaderHeight();
+      window.addEventListener('resize', syncHeaderHeight, { passive: true });
+    });
+  </script>
 </head>
 <body>
 
@@ -300,8 +314,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <header>
     <div class="container header-inner">
       <a href="/" class="logo-wrap">
-        <Image src={newLogo} alt="STR8 Positive Thinking Logo" width="160" height="128"
-               style="width:120px;height:auto;object-fit:contain;display:block;" />
+        <Image src={newLogo} alt="STR8 Positive Thinking Logo" width="320" height="256"
+               style="width:150px;height:auto;object-fit:contain;display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;" />
         <div class="logo-title">
           <span class="neon-text">STR8</span> POSITIVE
         </div>
