@@ -1,68 +1,18 @@
----
-import { Image } from 'astro:assets';
-import newLogo from '../../assets/str8-logo-hq-v2.png';
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
----
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Youth Programs - STR8 Positive Thinking</title>
-  <meta name="description" content="STR8 Positive Thinking youth programs: mentorship, identity development, and faith-based empowerment for the next generation. Get involved today." />
-  <link rel="canonical" href={canonicalURL} />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root { --neon:#5debdd; --neon-dark:#3db8ac; --neon-glow:0 0 18px rgba(93,235,221,0.4); --dark-bg:#0a0a0a; --dark-surface:#111; --dark-surface-2:#191919; --text-primary:#fff; --text-secondary:rgba(255,255,255,0.7); --border-color:rgba(93,235,221,0.18); }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body { font-family:'Poppins',sans-serif; background:var(--dark-bg); color:var(--text-primary); line-height:1.6; overflow-x:hidden; }
-    h1,h2,h3,h4 { font-family:'Montserrat',sans-serif; font-weight:700; line-height:1.25; }
-    .container { width:100%; max-width:1100px; margin:0 auto; padding:0 1.5rem; }
-    .neon-text { background:linear-gradient(135deg,#5debdd,#3db8ac); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
-    header { position:fixed; top:0; left:0; width:100%; z-index:1000; background:rgba(10,10,10,0.95); backdrop-filter:blur(12px); border-bottom:1px solid var(--border-color); padding:0.9rem 0; }
-    nav a { color:var(--text-secondary); text-decoration:none; font-weight:500; font-size:0.9rem; margin-left:1.75rem; transition:color 0.3s; }
-    nav a:hover, nav a.active { color:var(--neon); }
-    .hero { min-height:38vh; display:flex; align-items:center; justify-content:center; padding-top:var(--header-h,185px);padding-bottom:2.5rem;padding-left:0;padding-right:0; text-align:center; background:radial-gradient(circle at 50% 60%, rgba(93,235,221,0.08) 0%, transparent 65%); }
-    .hero h1 { font-size:clamp(2rem,6vw,3.5rem); margin-bottom:0.5rem; }
-    .divider { width:70px; height:3px; background:linear-gradient(90deg,#5debdd,#3db8ac); margin:0.6rem auto 0.8rem; border-radius:2px; }
-    .content { padding:3rem 0; }
-    .two-col { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; margin-bottom:3rem; }
-    .card { background:var(--dark-surface-2); border:1px solid var(--border-color); border-radius:16px; padding:2rem; }
-    .card h3 { color:#5debdd; margin-bottom:1rem; font-size:1.25rem; }
-    .feature-list { list-style:none; padding:0; }
-    .feature-list li { padding:0.4rem 0 0.4rem 1.5rem; position:relative; font-size:0.95rem; color:var(--text-secondary); border-bottom:1px solid rgba(255,255,255,0.05); }
-    .feature-list li:last-child { border-bottom:none; }
-    .feature-list li::before { content:'✓'; position:absolute; left:0; color:#5debdd; font-weight:700; }
-    .desc-text { font-size:1rem; color:var(--text-secondary); line-height:1.8; margin-bottom:1.25rem; }
-    .emoji-big { font-size:5rem; display:block; text-align:center; margin-bottom:1rem; }
-    .breadcrumb { font-size:0.85rem; color:var(--text-secondary); margin-bottom:1.5rem; }
-    .breadcrumb a { color:#5debdd; text-decoration:none; }
-    .btn-neon { display:inline-flex; align-items:center; gap:0.6rem; background:linear-gradient(135deg,#5debdd,#3db8ac); color:#0a0a0a; font-weight:700; padding:0.8rem 2rem; border-radius:50px; text-decoration:none; font-size:0.95rem; box-shadow:var(--neon-glow); transition:all 0.3s ease; }
-    .btn-neon:hover { transform:translateY(-2px); }
-    .btn-outline { display:inline-flex; align-items:center; gap:0.6rem; border:2px solid #5debdd; color:#5debdd; background:transparent; padding:0.75rem 1.75rem; border-radius:50px; text-decoration:none; font-weight:600; font-size:0.95rem; margin-left:0.75rem; transition:all 0.3s; }
-    .btn-outline:hover { background:rgba(93,235,221,0.1); }
-    .cta-bar { background:var(--dark-surface); border-top:1px solid var(--border-color); padding:2.5rem 0; text-align:center; }
-    footer { background:var(--dark-surface); border-top:1px solid var(--border-color); padding:1.75rem 0; text-align:center; }
-    footer p { color:var(--text-secondary); font-size:0.9rem; }
-    .impact-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:2rem 0; }
-    .stat-box { background:var(--dark-surface-2); border:1px solid var(--border-color); border-radius:14px; padding:1.5rem 1rem; text-align:center; }
-    .stat-box .stat-num { font-size:2.25rem; font-weight:800; background:linear-gradient(135deg,#5debdd,#3db8ac); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; display:block; }
-    .stat-box .stat-label { color:var(--text-secondary); font-size:0.85rem; margin-top:0.25rem; }
-    .program-tags { display:flex; flex-wrap:wrap; gap:0.6rem; margin:1.5rem 0; }
-    .tag { background:rgba(93,235,221,0.1); border:1px solid rgba(93,235,221,0.3); color:#5debdd; border-radius:50px; padding:0.35rem 1rem; font-size:0.8rem; font-weight:600; }
-    @media (max-width:768px) {
-      nav { display:none; }
-      .two-col { grid-template-columns:1fr; gap:1.5rem; }
-      .content { padding:2rem 0; }
-      .container { padding:0 0.85rem; }
-      .impact-stats { grid-template-columns:repeat(2,1fr); }
-    }
-    @media (max-width:480px) {
-      .btn-outline { margin-left:0; margin-top:0.75rem; }
-      .impact-stats { grid-template-columns:1fr 1fr; }
-    }
-  
+#!/usr/bin/env python3
+"""
+Restore the original home-page header, footer and JS to ALL pages.
+The original (from commit 713c185) is what the user liked.
+We replace the new 'site-header / mobile-drawer / site-footer' pattern
+with the original 'header / mobile-menu / footer' pattern on every page.
+"""
+
+import re, os
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. ORIGINAL CSS BLOCKS (exactly from 713c185 index.astro)
+# ─────────────────────────────────────────────────────────────────────────────
+
+HEADER_CSS = """
     header {
       position: fixed;
       top: 0;
@@ -236,7 +186,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         width: 60px;
       }
     }
+"""
 
+FOOTER_CSS = """
     footer {
       background: #0F0F0F;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
@@ -388,24 +340,37 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         width: 100%;
       }
     }
+"""
 
-  </style>
-</head>
-<body>
-  <header>
+# ─────────────────────────────────────────────────────────────────────────────
+# 2. HTML BLOCKS (per-page active link injected by make_header)
+# ─────────────────────────────────────────────────────────────────────────────
+
+def make_header(active_page):
+    """Return the original header + mobile-menu HTML, with active class on the right link."""
+    links = [
+        ('/', 'Home'),
+        ('/services', 'Services'),
+        ('/info', 'Info'),
+        ('/team', 'Team'),
+        ('/booking', 'Book'),
+        ('/donate', 'Donate'),
+        ('#contact', 'Contact'),
+    ]
+    nav_links = ''
+    mobile_links = ''
+    for href, label in links:
+        active = ' class="active"' if href == active_page else ''
+        nav_links += f'        <a href="{href}"{active}>{label}</a>\n'
+        mobile_links += f'    <a href="{href}"{active}>{label}</a>\n'
+
+    return f"""  <header>
     <div class="container header-content">
       <a href="/" style="display:flex;align-items:center;text-decoration:none;">
-        <Image src={newLogo} alt="STR8 Positive Thinking Logo" width={320} height={256} class="logo-img" />
+        <Image src={{newLogo}} alt="STR8 Positive Thinking Logo" width={{320}} height={{256}} class="logo-img" />
       </a>
       <nav>
-        <a href="/">Home</a>
-        <a href="/services" class="active">Services</a>
-        <a href="/info">Info</a>
-        <a href="/team">Team</a>
-        <a href="/booking">Book</a>
-        <a href="/donate">Donate</a>
-        <a href="#contact">Contact</a>
-      </nav>
+{nav_links}      </nav>
       <button class="mobile-menu-btn" aria-label="Open mobile menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
       </button>
@@ -417,98 +382,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <button class="close-menu-btn" aria-label="Close mobile menu">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
-    <a href="/">Home</a>
-    <a href="/services" class="active">Services</a>
-    <a href="/info">Info</a>
-    <a href="/team">Team</a>
-    <a href="/booking">Book</a>
-    <a href="/donate">Donate</a>
-    <a href="#contact">Contact</a>
-  </div>
+{mobile_links}  </div>"""
 
 
-  <div class="hero">
-    <div>
-      <span class="emoji-big">🌱</span>
-      <h1><span class="neon-text">Youth Programs</span></h1>
-      <div class="divider"></div>
-      <p style="color:var(--text-secondary);font-size:1rem;max-width:560px;margin:0 auto;">Investing in the next generation — building identity, faith, purpose, and community in the lives of young people.</p>
-    </div>
-  </div>
-
-  <section class="content">
-    <div class="container">
-      <p class="breadcrumb"><a href="/">Home</a> → <a href="/services">Services</a> → Youth Programs</p>
-
-      <div class="two-col">
-        <div>
-          <h2 style="font-size:clamp(1.5rem,4vw,2rem);margin-bottom:1rem;">The Future is <span class="neon-text">Worth Fighting For.</span></h2>
-          <p class="desc-text">Young people face pressure from every direction — social media, identity confusion, family instability, and a culture that often offers noise instead of truth. STR8 Positive Thinking steps into that space with faith, mentorship, and real community.</p>
-          <p class="desc-text">Our youth programming is designed to give young people a safe space to discover who they are, whose they are, and what they're here for. We don't just entertain — we equip and empower.</p>
-          <p class="desc-text">From speaking at schools and youth conferences to one-on-one mentorship, we meet youth where they are and walk with them toward purpose.</p>
-
-          <div class="program-tags">
-            <span class="tag">Mentorship</span>
-            <span class="tag">Identity Development</span>
-            <span class="tag">Faith Formation</span>
-            <span class="tag">Leadership</span>
-            <span class="tag">Anti-Bullying</span>
-            <span class="tag">Community Service</span>
-          </div>
-
-          <div style="margin-top:1rem;display:flex;flex-wrap:wrap;gap:0.75rem;">
-            <a href="/booking" class="btn-neon">Get Involved</a>
-            <a href="/#contact" class="btn-outline">Partner With Us</a>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Program Highlights</h3>
-          <ul class="feature-list">
-            <li>School & assembly speaking engagements</li>
-            <li>Youth conference & camp participation</li>
-            <li>One-on-one mentorship sessions</li>
-            <li>Group workshops on identity & purpose</li>
-            <li>Faith-based character development</li>
-            <li>Anti-bullying & conflict resolution talks</li>
-            <li>Community service & outreach opportunities</li>
-            <li>Book discussions (Steven J. Bennett Jr.'s work)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="impact-stats">
-        <div class="stat-box">
-          <span class="stat-num">100+</span>
-          <span class="stat-label">Youth Reached</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">∞</span>
-          <span class="stat-label">Lives Changed</span>
-        </div>
-        <div class="stat-box">
-          <span class="stat-num">1</span>
-          <span class="stat-label">Mission: Next Gen</span>
-        </div>
-      </div>
-
-      <div class="card" style="max-width:800px;margin:1.5rem auto 0;text-align:center;">
-        <h3 style="font-size:1.35rem;margin-bottom:0.75rem;">"Good Trouble Starts Young"</h3>
-        <p style="color:var(--text-secondary);font-size:0.95rem;line-height:1.8;">The next generation isn't a problem to be managed — they're a force to be unleashed. STR8 Positive Thinking exists to give young people the identity, faith, and tools to cause the kind of Good Trouble that changes neighborhoods, families, and generations.</p>
-        <p style="color:#5debdd;font-weight:600;margin-top:1rem;">#GoJesus 🙏 | #NextGenRising | #Str8PositiveThinking</p>
-      </div>
-    </div>
-  </section>
-
-  <div class="cta-bar">
-    <h2 style="font-size:1.75rem;margin-bottom:0.75rem;">Invest in the <span class="neon-text">Next Generation.</span></h2>
-    <p style="color:var(--text-secondary);margin-bottom:1.5rem;font-size:0.95rem;">Bring our youth programs to your school, church, or community — or support the work through a donation.</p>
-    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
-      <a href="/booking" class="btn-neon" style="font-size:1rem;padding:0.9rem 2.25rem;">Book a Program</a>
-      <a href="/donate" class="btn-outline" style="font-size:1rem;padding:0.85rem 2rem;">Donate Now</a>
-    </div>
-  </div>
-
-  <footer>
+# The footer uses {new Date().getFullYear()} which is Astro/JSX syntax — keep as-is
+FOOTER = """  <footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-about">
@@ -563,8 +441,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <p>&copy; {new Date().getFullYear()} Str8 Positive Thinking. All rights reserved. | <a href="https://metrowebsites.com" target="_blank" rel="noreferrer">Website and SEO by <strong>MetroWebsites.com</strong></a></p>
       </div>
     </div>
-  </footer>
-  <script>
+  </footer>"""
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 3. JAVASCRIPT (original from 713c185)
+# ─────────────────────────────────────────────────────────────────────────────
+
+SHARED_JS = """  <script>
     document.addEventListener('DOMContentLoaded', () => {
       const header = document.querySelector('header');
       const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
@@ -612,6 +496,204 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         });
       });
     });
-  </script>
-</body>
-</html>
+  </script>"""
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 4. HELPER: strip old shared-CSS blocks injected by fix_all_pages.py
+# ─────────────────────────────────────────────────────────────────────────────
+
+def strip_injected_shared_css(content):
+    """Remove the HEADER_CSS and FOOTER_CSS blocks that were injected before </style>."""
+    # These markers were added by fix_all_pages.py
+    content = re.sub(
+        r'\n\s*/\* ={10,} SHARED HEADER CSS ={10,} \*/.*?/\* ={10,} END SHARED HEADER CSS ={10,} \*/',
+        '', content, flags=re.DOTALL
+    )
+    content = re.sub(
+        r'\n\s*/\* ={10,} SHARED FOOTER CSS ={10,} \*/.*?/\* ={10,} END SHARED FOOTER CSS ={10,} \*/',
+        '', content, flags=re.DOTALL
+    )
+    # Also strip site-header / site-footer / mobile-drawer / drawer-* / nav-hamburger CSS rules
+    patterns_to_strip = [
+        r'\s*#site-header\s*\{[^}]*\}',
+        r'\s*\.site-nav\s*\{[^}]*\}',
+        r'\s*\.site-nav\s+a\s*\{[^}]*\}',
+        r'\s*\.site-nav\s+a\.active\s*\{[^}]*\}',
+        r'\s*\.nav-hamburger\s*\{[^}]*\}',
+        r'\s*\.nav-hamburger\s*:hover\s*\{[^}]*\}',
+        r'\s*\.mobile-drawer\s*\{[^}]*\}',
+        r'\s*\.mobile-drawer\.open\s*\{[^}]*\}',
+        r'\s*\.mobile-drawer\s+a\s*\{[^}]*\}',
+        r'\s*\.mobile-drawer\s+a\s*:hover\s*\{[^}]*\}',
+        r'\s*\.mobile-drawer\s+a\.active\s*\{[^}]*\}',
+        r'\s*\.drawer-close\s*\{[^}]*\}',
+        r'\s*\.drawer-cta\s*\{[^}]*\}',
+        r'\s*\.logo-wrap\s*\{[^}]*\}',
+        r'\s*\.header-inner\s*\{[^}]*\}',
+        r'\s*\.site-footer\s*\{[^}]*\}',
+        r'\s*\.footer-brand\s*\{[^}]*\}',
+        r'\s*\.footer-socials\s*\{[^}]*\}',
+        r'\s*\.footer-socials\s+a\s*\{[^}]*\}',
+        r'\s*\.footer-col-heading\s*\{[^}]*\}',
+        r'\s*\.footer-link-list\s*\{[^}]*\}',
+        r'\s*\.footer-link-list\s+li\s*\{[^}]*\}',
+        r'\s*\.footer-link-list\s+a\s*\{[^}]*\}',
+        r'\s*\.footer-link-list\s+a\s*:hover\s*\{[^}]*\}',
+        r'\s*\.footer-divider\s*\{[^}]*\}',
+        r'\s*\.nav-cta\s*\{[^}]*\}',
+        r'\s*\.nav-cta\s*:hover\s*\{[^}]*\}',
+    ]
+    for pat in patterns_to_strip:
+        content = re.sub(pat, '', content, flags=re.DOTALL)
+    return content
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. MAIN PROCESSOR
+# ─────────────────────────────────────────────────────────────────────────────
+
+def inject_css_into_style(content, css_to_add):
+    """Inject CSS just before the closing </style> tag."""
+    return content.replace('</style>', css_to_add + '\n  </style>', 1)
+
+
+def replace_header_and_mobile(content, active_page):
+    """Replace new bad header+drawer block with original header+mobile-menu."""
+    new_header_html = make_header(active_page)
+
+    # Pattern 1: new-style  <header id="site-header"> ... </header> \n\n  <div class="mobile-drawer" ...> ... </div>
+    pattern = re.compile(
+        r'  <header id="site-header">.*?</header>\s*\n\s*<div class="mobile-drawer"[^>]*>.*?</div>',
+        re.DOTALL
+    )
+    replaced, n = re.subn(pattern, new_header_html, content)
+    if n:
+        print(f"  ✓ Replaced new site-header+drawer pattern ({n} match)")
+        return replaced
+
+    # Pattern 2: already has old-style <header> — just update the active links
+    pattern2 = re.compile(r'  <header>.*?</div>\s*\n\s*<!-- Mobile Menu -->\s*\n\s*<div class="mobile-menu">.*?</div>', re.DOTALL)
+    replaced2, n2 = re.subn(pattern2, new_header_html, content)
+    if n2:
+        print(f"  ✓ Updated active link in existing original header ({n2} match)")
+        return replaced2
+
+    print("  ⚠ No header pattern matched!")
+    return content
+
+
+def replace_footer(content):
+    """Replace new bad site-footer block with original footer."""
+    # Pattern: <footer class="site-footer"> ... </footer>
+    pattern = re.compile(r'  <footer class="site-footer">.*?</footer>', re.DOTALL)
+    replaced, n = re.subn(pattern, FOOTER, content)
+    if n:
+        print(f"  ✓ Replaced site-footer ({n} match)")
+        return replaced
+
+    # Already has old-style <footer> (no class="site-footer") — replace it too
+    pattern2 = re.compile(r'  <footer>.*?</footer>', re.DOTALL)
+    replaced2, n2 = re.subn(pattern2, FOOTER, content)
+    if n2:
+        print(f"  ✓ Replaced plain <footer> ({n2} match)")
+        return replaced2
+
+    print("  ⚠ No footer pattern matched!")
+    return content
+
+
+def replace_scripts(content):
+    """Replace the new IIFE script block with the original DOMContentLoaded script."""
+    # New-style script starts with (function() { and references site-header / hamburgerBtn
+    pattern = re.compile(
+        r'  <script>\s*\(function\(\)\s*\{.*?closeMobileDrawer.*?\}\)\(\);\s*</script>',
+        re.DOTALL
+    )
+    replaced, n = re.subn(pattern, SHARED_JS, content)
+    if n:
+        print(f"  ✓ Replaced new IIFE script ({n} match)")
+        return replaced
+
+    # Already has old-style script — update to ensure body overflow handling is present
+    # (Just leave it if it already has DOMContentLoaded — it's the right one)
+    if 'DOMContentLoaded' in content and 'syncHeaderHeight' in content:
+        print("  ✓ Script already in original form, skipping")
+        return content
+
+    print("  ⚠ No script pattern matched!")
+    return content
+
+
+def ensure_logo_import(content, is_services_page=False):
+    """Make sure newLogo is imported from the correct relative path."""
+    # Services pages need ../../assets/
+    asset_path = '../../assets/str8-logo-hq-v2.png' if is_services_page else '../assets/str8-logo-hq-v2.png'
+
+    if 'newLogo' not in content:
+        # Add import
+        content = content.replace(
+            "import { Image } from 'astro:assets';",
+            f"import {{ Image }} from 'astro:assets';\nimport newLogo from '{asset_path}';"
+        )
+        print(f"  ✓ Added newLogo import")
+    return content
+
+
+def process_page(filepath, active_page, is_services=False):
+    print(f"\nProcessing: {filepath}")
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+
+    # 1. Ensure newLogo import exists
+    content = ensure_logo_import(content, is_services_page=is_services)
+
+    # 2. Strip any old injected shared-CSS blocks
+    content = strip_injected_shared_css(content)
+
+    # 3. Inject clean original CSS into <style> block
+    # First remove any existing header/footer CSS blocks that were already there
+    # (they may already be correct for index.astro, so we remove and re-add to be safe)
+    content = re.sub(r'\n\s*/\* --- header styles --- \*/.*', '', content, flags=re.DOTALL)
+
+    # Inject original header + footer CSS before </style>
+    content = inject_css_into_style(content, HEADER_CSS + FOOTER_CSS)
+
+    # 4. Replace bad header HTML with original
+    content = replace_header_and_mobile(content, active_page)
+
+    # 5. Replace bad footer HTML with original
+    content = replace_footer(content)
+
+    # 6. Replace bad script with original
+    content = replace_scripts(content)
+
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(content)
+
+    print(f"  ✓ Done: {filepath}")
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 6. RUN ON ALL PAGES
+# ─────────────────────────────────────────────────────────────────────────────
+
+PAGES = [
+    ('src/pages/index.astro',                              '/',          False),
+    ('src/pages/info.astro',                               '/info',      False),
+    ('src/pages/booking.astro',                            '/booking',   False),
+    ('src/pages/donate.astro',                             '/donate',    False),
+    ('src/pages/team.astro',                               '/team',      False),
+    ('src/pages/services/index.astro',                     '/services',  True),
+    ('src/pages/services/wedding-ceremonies.astro',        '/services',  True),
+    ('src/pages/services/motivational-speaking.astro',     '/services',  True),
+    ('src/pages/services/encouragement-support.astro',     '/services',  True),
+    ('src/pages/services/youth-programs.astro',            '/services',  True),
+]
+
+if __name__ == '__main__':
+    base = os.path.dirname(os.path.abspath(__file__))
+    for rel_path, active, is_svc in PAGES:
+        full_path = os.path.join(base, rel_path)
+        process_page(full_path, active, is_svc)
+    print("\n✅ All pages processed!")
