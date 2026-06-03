@@ -61,37 +61,43 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       .btn-outline { margin-left:0; margin-top:0.75rem; }
     }
   </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('header');
-      function syncHeaderHeight() {
-        if (header) {
-          const h = header.getBoundingClientRect().height;
-          document.documentElement.style.setProperty('--header-h', h + 'px');
-        }
-      }
-      syncHeaderHeight();
-      window.addEventListener('resize', syncHeaderHeight, { passive: true });
-    });
-  </script>
 </head>
 <body>
-  <header>
+  <header id="site-header">
     <div class="container header-inner">
-      <a href="/" style="display:flex;align-items:center;text-decoration:none;">
-        <Image src={newLogo} alt="STR8 Positive Thinking" width="320" height="256" style="object-fit:contain;width:150px;height:auto;display:block;image-rendering:-webkit-optimize-contrast;image-rendering:crisp-edges;" />
+      <a href="/" class="logo-wrap">
+        <img src="/str8-logo-hq-v2.png"
+             
+             alt="STR8 Positive Thinking" class="logo-img" width="260" height="208" />
       </a>
-      <nav>
+      <nav class="site-nav">
         <a href="/">Home</a>
         <a href="/services" class="active">Services</a>
         <a href="/info">Info</a>
         <a href="/team">Team</a>
         <a href="/booking">Book</a>
         <a href="/donate">Donate</a>
-        <a href="/#contact">Contact</a>
+        <a href="/#contact" class="nav-cta">Contact</a>
       </nav>
+      <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
   </header>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose" aria-label="Close">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <a href="/" onclick="closeMobileDrawer()">Home</a>
+    <a href="/services" class="active" onclick="closeMobileDrawer()">Services</a>
+    <a href="/info" onclick="closeMobileDrawer()">Info</a>
+    <a href="/team" onclick="closeMobileDrawer()">Team</a>
+    <a href="/booking" onclick="closeMobileDrawer()">Book</a>
+    <a href="/donate" onclick="closeMobileDrawer()">Donate</a>
+    <a href="/#contact" class="drawer-cta" onclick="closeMobileDrawer()">Contact Us</a>
+  </div>
+
 
   <div class="hero">
     <div>
@@ -165,11 +171,99 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <a href="/#contact" class="btn-neon" style="font-size:1rem;padding:0.9rem 2.25rem;">Get in Touch</a>
   </div>
 
-  <footer>
+  <footer class="site-footer">
     <div class="container">
-      <p><span class="neon-text" style="font-weight:700;">STR8 POSITIVE THINKING</span> — Spirit-Led Encouragement with Purpose</p>
-      <p style="margin-top:0.4rem;"><a href="/services" style="color:#5debdd;text-decoration:none;">← Back to All Services</a> | &copy; {new Date().getFullYear()}</p>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/">
+            <img src="/str8-logo-hq-v2.png"
+                 
+                 alt="STR8 Positive Thinking" width="200" height="160" />
+          </a>
+          <p>Spirit-Led Encouragement with Purpose.<br>Causing that good trouble &mdash; <strong style="color:#5debdd;">#GoJesus</strong></p>
+          <div class="footer-socials">
+            <a href="https://www.youtube.com/@straightpositivethinkingwi1673?sub_confirmation=1" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@steviebennettjr" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5Z"/><path d="M10 12a3 3 0 1 1-3-3"/><path d="M10 9v8"/><path d="M14 15a3 3 0 0 0 3-3V9a3 3 0 0 1 3-3"/></svg>
+            </a>
+            <a href="https://www.instagram.com/str8positivethinking" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://podcasters.spotify.com/pod/show/stevie-bennett3" target="_blank" rel="noopener" aria-label="Spotify">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 11.8a6 6 0 0 1 8 0"/><path d="M9.5 9a3.5 3.5 0 0 1 5 0"/></svg>
+            </a>
+            <a href="https://linktr.ee/steviedatroublemaker" target="_blank" rel="noopener" aria-label="Linktree">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1"/><path d="M17 3h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1"/><path d="M12 3v16"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-heading">Quick Links</p>
+          <ul class="footer-link-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/info">About / Info</a></li>
+            <li><a href="/team">Our Team</a></li>
+            <li><a href="/booking">Book an Event</a></li>
+            <li><a href="/donate">Donate</a></li>
+            <li><a href="/#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-heading">Connect</p>
+          <ul class="footer-link-list">
+            <li><a href="mailto:info@str8positivethinking.com">info@str8positivethinking.com</a></li>
+            <li><a href="/booking">Book a Speaking Event</a></li>
+            <li><a href="https://www.tiktok.com/@steviebennettjr" target="_blank" rel="noopener">TikTok @steviebennettjr</a></li>
+            <li><a href="https://www.youtube.com/@steviebennett4905/videos" target="_blank" rel="noopener">YouTube Music Ministry</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Str8 Positive Thinking. All rights reserved.</p>
+        <p>Website &amp; SEO by <a href="https://metrowebsites.com" target="_blank" rel="noreferrer">MetroWebsites.com</a></p>
+      </div>
     </div>
   </footer>
+  <script>
+    (function() {
+      var header = document.getElementById('site-header');
+      var hamburger = document.getElementById('hamburgerBtn');
+      var drawer = document.getElementById('mobileDrawer');
+      var drawerClose = document.getElementById('drawerClose');
+
+      function syncHeaderHeight() {
+        if (header) {
+          var h = header.getBoundingClientRect().height;
+          document.documentElement.style.setProperty('--header-h', h + 'px');
+        }
+      }
+
+      window.closeMobileDrawer = function() {
+        if (drawer) drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      };
+
+      syncHeaderHeight();
+      window.addEventListener('resize', syncHeaderHeight, {passive:true});
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) { header && header.classList.add('scrolled'); }
+        else { header && header.classList.remove('scrolled'); }
+        setTimeout(syncHeaderHeight, 380);
+      }, {passive:true});
+
+      if (hamburger) hamburger.addEventListener('click', function() {
+        if (drawer) drawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+      if (drawerClose) drawerClose.addEventListener('click', window.closeMobileDrawer);
+      if (drawer) drawer.addEventListener('click', function(e) {
+        if (e.target === drawer) window.closeMobileDrawer();
+      });
+    })();
+  </script>
 </body>
 </html>

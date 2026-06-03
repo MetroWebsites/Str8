@@ -1,19 +1,7 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '../assets/straight-positive-thinking-llc-01_nw_21335987.jpg';
-import sponsors from '../assets/sponsors_nw_400b4a17.jpg';
-import testimonialsImg from '../assets/screenshot_20230123_060834_messenger_nw_73ceaebd.jpg';
-import founderImg from '../assets/1760991425081-0_nw_f2e7d512.jpg';
-import testimonials2Img from '../assets/screenshot_20230123_060834_messenger-1_nw_ceaaa94d.jpg';
 import sponsors2 from '../assets/sponsors-1_nw_2ee0bf3d.jpg';
-import logo2 from '../assets/straight-positive-thinking-llc-01-1_nw_fc974e40.jpg';
-
-// New assets
-import newLogo from '../assets/straight-positive-thinking-llc-01-3_nw_895cee9b.jpg';
-import str8LogoNew from '../assets/str8-logo-hq-v2.png';
-import newSponsors from '../assets/image000001_nw_8db8628c.jpg';
 import newTestimonial from '../assets/screenshot_20230123_060834_messenger-2_nw_aab24800.jpg';
-import kcMailing from '../assets/500272678_23967249526200867_2784044080589144156_n_nw_ca8b0c4e.jpg';
 import grinchImage from '../assets/1000005102_nw_1e15eeae.jpg';
 import billboardImage from '../assets/1000004287_nw_479f5676.jpg';
 
@@ -294,16 +282,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       width: 100%;
     }
     
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--text-primary);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
-    
     /* Services 4-col grid */
     .services-grid-4 {
       display: grid;
@@ -323,7 +301,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-top: var(--header-h, 185px);
+      padding-top: var(--header-h, 160px);
       padding-bottom: 3rem;
       position: relative;
       overflow: hidden;
@@ -992,7 +970,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         width: 60px;
       }
       .hero {
-        padding-top: var(--header-h, 120px) !important;
+        padding-top: var(--header-h, 160px);
         min-height: auto !important;
         padding-bottom: 2.5rem;
       }
@@ -1012,17 +990,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         overflow-x: hidden;
       }
       
-      nav {
-        display: none;
-      }
-      
-      .mobile-menu-btn {
-        display: block;
-      }
-      
-      .hero {
-        min-height: 75vh;
-      }
+      .hero { min-height: 75vh; }
 
       .hero h1 {
         font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
@@ -1145,180 +1113,46 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
     }
     
-    /* Mobile Menu */
-    .mobile-menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background: var(--bg-darker);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2rem;
-      z-index: 9999;
-      transform: translateX(-100%);
-      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    
-    .mobile-menu.open {
-      transform: translateX(0);
-    }
-    
-    .mobile-menu a {
-      color: var(--text-primary);
-      text-decoration: none;
-      font-size: 1.75rem;
-      font-weight: 600;
-      transition: color 0.3s ease;
-    }
-    
-    .mobile-menu a:hover {
-      color: #5debdd;
-    }
-    
-    .close-menu-btn {
-      position: absolute;
-      top: 2rem;
-      right: 2rem;
-      background: none;
-      border: none;
-      color: var(--text-primary);
-      font-size: 2rem;
-      cursor: pointer;
-      padding: 0.5rem;
-    }
+
   </style>
-  
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('header');
-      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-      const mobileMenu = document.querySelector('.mobile-menu');
-      const closeMenuBtn = document.querySelector('.close-menu-btn');
-      
-      // Set CSS var --header-h to actual header height so hero padding always matches
-      function syncHeaderHeight() {
-        if (header) {
-          const h = header.getBoundingClientRect().height;
-          document.documentElement.style.setProperty('--header-h', h + 'px');
-        }
-      }
-      syncHeaderHeight();
-      window.addEventListener('resize', syncHeaderHeight, { passive: true });
-
-      // Header scroll effect — shrinks logo + padding when scrolled
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 60) {
-          header?.classList.add('scrolled');
-        } else {
-          header?.classList.remove('scrolled');
-        }
-        // Re-sync after transition settles
-        setTimeout(syncHeaderHeight, 380);
-      }, { passive: true });
-      
-      // Mobile menu toggle
-      mobileMenuBtn?.addEventListener('click', () => {
-        mobileMenu?.classList.add('open');
-      });
-      
-      closeMenuBtn?.addEventListener('click', () => {
-        mobileMenu?.classList.remove('open');
-      });
-      
-      // Close mobile menu when clicking a link
-      const mobileLinks = mobileMenu?.querySelectorAll('a');
-      mobileLinks?.forEach(link => {
-        link.addEventListener('click', () => {
-          mobileMenu?.classList.remove('open');
-        });
-      });
-      
-      // Contact form handler - opens mail client with form data
-      const contactForm = document.getElementById('contactForm');
-      contactForm?.addEventListener('submit', (e) => {
-        e.preventDefault();
-        
-        // Get form values
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const subject = document.getElementById('subject').value;
-        const message = document.getElementById('message').value;
-        
-        // Build email body with form data
-        const emailBody = `
-Contact Form Submission from Str8 Positive Thinking Website
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Name: ${name}
-
-Email: ${email}
-
-Subject: ${subject}
-
-Message:
-${message}
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-This message was sent from the contact form at str8positivethinking.com
-        `.trim();
-        
-        // Encode the email body for URL
-        const encodedBody = encodeURIComponent(emailBody);
-        const encodedSubject = encodeURIComponent(`Contact Form: ${subject}`);
-        
-        // Create mailto link with recipient, subject, and body
-        const mailtoLink = `mailto:info@str8positivethinking.com?subject=${encodedSubject}&body=${encodedBody}`;
-        
-        // Open the user's mail client
-        window.location.href = mailtoLink;
-        
-        // Optional: Reset the form after a short delay
-        setTimeout(() => {
-          contactForm.reset();
-        }, 1000);
-      });
-    });
-  </script>
 </head>
 <body>
-  <!-- Header -->
-  <header>
-    <div class="container header-content">
-      <a href="/" style="display:flex;align-items:center;text-decoration:none;">
-        <Image src={str8LogoNew} alt="STR8 Positive Thinking Logo" width="320" height="256" class="logo-img" />
+  <header id="site-header">
+    <div class="container header-inner">
+      <a href="/" class="logo-wrap">
+        <img src="/str8-logo-hq-v2.png"
+             
+             alt="STR8 Positive Thinking" class="logo-img" width="260" height="208" />
       </a>
-      <nav>
-        <a href="/">Home</a>
+      <nav class="site-nav">
+        <a href="/" class="active">Home</a>
         <a href="/services">Services</a>
         <a href="/info">Info</a>
         <a href="/team">Team</a>
         <a href="/booking">Book</a>
         <a href="/donate">Donate</a>
-        <a href="#contact">Contact</a>
+        <a href="/#contact" class="nav-cta">Contact</a>
       </nav>
-      <button class="mobile-menu-btn" aria-label="Open mobile menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      <button class="nav-hamburger" id="hamburgerBtn" aria-label="Open menu">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
       </button>
     </div>
   </header>
-  
-  <!-- Mobile Menu -->
-  <div class="mobile-menu">
-    <button class="close-menu-btn" aria-label="Close mobile menu">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+
+  <div class="mobile-drawer" id="mobileDrawer">
+    <button class="drawer-close" id="drawerClose" aria-label="Close">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
     </button>
-    <a href="/">Home</a>
-    <a href="/services">Services</a>
-    <a href="/info">Info</a>
-    <a href="/team">Team</a>
-    <a href="/booking">Book</a>
-    <a href="/donate">Donate</a>
-    <a href="#contact">Contact</a>
+    <a href="/" class="active" onclick="closeMobileDrawer()">Home</a>
+    <a href="/services" onclick="closeMobileDrawer()">Services</a>
+    <a href="/info" onclick="closeMobileDrawer()">Info</a>
+    <a href="/team" onclick="closeMobileDrawer()">Team</a>
+    <a href="/booking" onclick="closeMobileDrawer()">Book</a>
+    <a href="/donate" onclick="closeMobileDrawer()">Donate</a>
+    <a href="/#contact" class="drawer-cta" onclick="closeMobileDrawer()">Contact Us</a>
   </div>
+  <!-- Header -->
+
   
   <!-- Hero Section -->
   <section class="hero" id="home">
@@ -1898,66 +1732,106 @@ This message was sent from the contact form at str8positivethinking.com
   </section>
   
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-about">
-          <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-            <Image src={str8LogoNew} alt="STR8 Positive Thinking Logo" width="80" height="64" style="object-fit:contain;background:transparent;height:auto;" />
-            <div class="logo-text">
-              <span class="gradient-text">STR8</span> <span class="gradient-text-red">POSITIVE</span>
-            </div>
-          </div>
-          <p>"Causing that good trouble, we are all about helping people an encouraging them"</p>
-          <div class="social-links">
-            <a href="https://www.youtube.com/@straightpositivethinkingwi1673?sub_confirmation=1" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
-            </a>
-            <a href="https://podcasters.spotify.com/pod/show/stevie-bennett3" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 11.8a6 6 0 0 1 8 0"/><path d="M9 9a3.5 3.5 0 0 1 6 0"/><path d="M11 6a1.5 1.5 0 1 1 2 0"/></svg>
-            </a>
-            <a href="https://www.tiktok.com/@steviebennettjr" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5Z"/><path d="M10 12a3 3 0 1 1-3-3"/><path d="M10 9v8"/><path d="M14 15a3 3 0 0 0 3-3V9a3 3 0 0 1 3-3"/></svg>
-            </a>
-            <a href="https://www.instagram.com/str8positivethinking?igshid=ZDdkNTZiNTM%3D" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-            </a>
-          </div>
-        </div>
-        
-        <div>
-          <h4 class="footer-heading">Quick Links</h4>
-          <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="/services">All Services</a>
-            <a href="#about">About Us</a>
-            <a href="/team">Meet the Team</a>
-            <a href="#testimonials">Testimonials</a>
-            <a href="#contact">Contact Us</a>
-          </div>
-        </div>
-        
-        <div>
-          <h4 class="footer-heading">Subscribe to Our Newsletter</h4>
-          <p style="color: var(--text-secondary); margin-bottom: 1rem;">Stay updated with our latest events and positive messages</p>
-          <form data-form-type="utility" action="https://metrowebsites.com/api/submit-form/" method="POST" enctype="multipart/form-data" class="newsletter-form">
-            <input type="email" name="email" class="newsletter-input" placeholder="Your email address" required />
-            <button type="submit" class="newsletter-btn">Subscribe</button>
-            <input type="hidden" name="form_name" value="Newsletter Signup" />
-          </form>
-        </div>
-      </div>
-      
-      <div class="footer-bottom">
-        <p>&copy; {new Date().getFullYear()} Str8 Positive Thinking. All rights reserved. | <a href="https://metrowebsites.com" target="_blank" rel="noreferrer">Website and SEO by <strong>MetroWebsites.com</strong></a></p>
-      </div>
-    </div>
-  </footer>
   
   <!-- 
   Website Design & Development by MetroWebsites.com
   Professional SEO Services by MetroWebsites.com
   Content Management by MetroWebsites.com
 -->
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/">
+            <img src="/str8-logo-hq-v2.png"
+                 
+                 alt="STR8 Positive Thinking" width="200" height="160" />
+          </a>
+          <p>Spirit-Led Encouragement with Purpose.<br>Causing that good trouble &mdash; <strong style="color:#5debdd;">#GoJesus</strong></p>
+          <div class="footer-socials">
+            <a href="https://www.youtube.com/@straightpositivethinkingwi1673?sub_confirmation=1" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24 24 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.6 49.6 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24 24 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.6 49.6 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
+            </a>
+            <a href="https://www.tiktok.com/@steviebennettjr" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 8v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5h8a5 5 0 0 1 5 5Z"/><path d="M10 12a3 3 0 1 1-3-3"/><path d="M10 9v8"/><path d="M14 15a3 3 0 0 0 3-3V9a3 3 0 0 1 3-3"/></svg>
+            </a>
+            <a href="https://www.instagram.com/str8positivethinking" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+            </a>
+            <a href="https://podcasters.spotify.com/pod/show/stevie-bennett3" target="_blank" rel="noopener" aria-label="Spotify">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 11.8a6 6 0 0 1 8 0"/><path d="M9.5 9a3.5 3.5 0 0 1 5 0"/></svg>
+            </a>
+            <a href="https://linktr.ee/steviedatroublemaker" target="_blank" rel="noopener" aria-label="Linktree">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h1"/><path d="M17 3h1a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-1"/><path d="M12 3v16"/></svg>
+            </a>
+          </div>
+        </div>
+        <div>
+          <p class="footer-col-heading">Quick Links</p>
+          <ul class="footer-link-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/info">About / Info</a></li>
+            <li><a href="/team">Our Team</a></li>
+            <li><a href="/booking">Book an Event</a></li>
+            <li><a href="/donate">Donate</a></li>
+            <li><a href="/#contact">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="footer-col-heading">Connect</p>
+          <ul class="footer-link-list">
+            <li><a href="mailto:info@str8positivethinking.com">info@str8positivethinking.com</a></li>
+            <li><a href="/booking">Book a Speaking Event</a></li>
+            <li><a href="https://www.tiktok.com/@steviebennettjr" target="_blank" rel="noopener">TikTok @steviebennettjr</a></li>
+            <li><a href="https://www.youtube.com/@steviebennett4905/videos" target="_blank" rel="noopener">YouTube Music Ministry</a></li>
+          </ul>
+        </div>
+      </div>
+      <hr class="footer-divider" />
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} Str8 Positive Thinking. All rights reserved.</p>
+        <p>Website &amp; SEO by <a href="https://metrowebsites.com" target="_blank" rel="noreferrer">MetroWebsites.com</a></p>
+      </div>
+    </div>
+  </footer>
+  <script>
+    (function() {
+      var header = document.getElementById('site-header');
+      var hamburger = document.getElementById('hamburgerBtn');
+      var drawer = document.getElementById('mobileDrawer');
+      var drawerClose = document.getElementById('drawerClose');
+
+      function syncHeaderHeight() {
+        if (header) {
+          var h = header.getBoundingClientRect().height;
+          document.documentElement.style.setProperty('--header-h', h + 'px');
+        }
+      }
+
+      window.closeMobileDrawer = function() {
+        if (drawer) drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      };
+
+      syncHeaderHeight();
+      window.addEventListener('resize', syncHeaderHeight, {passive:true});
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 50) { header && header.classList.add('scrolled'); }
+        else { header && header.classList.remove('scrolled'); }
+        setTimeout(syncHeaderHeight, 380);
+      }, {passive:true});
+
+      if (hamburger) hamburger.addEventListener('click', function() {
+        if (drawer) drawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+      if (drawerClose) drawerClose.addEventListener('click', window.closeMobileDrawer);
+      if (drawer) drawer.addEventListener('click', function(e) {
+        if (e.target === drawer) window.closeMobileDrawer();
+      });
+    })();
+  </script>
 </body>
 </html>
