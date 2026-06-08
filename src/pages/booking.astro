@@ -497,7 +497,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <a href="/team">Team</a>
         <a href="/booking" class="active">Book</a>
         <a href="/donate">Donate</a>
-        <a href="#contact">Contact</a>
+        <a href="/#contact">Contact</a>
       </nav>
       <button class="mobile-menu-btn" aria-label="Open mobile menu">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
@@ -516,7 +516,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <a href="/team">Team</a>
     <a href="/booking" class="active">Book</a>
     <a href="/donate">Donate</a>
-    <a href="#contact">Contact</a>
+    <a href="/#contact">Contact</a>
   </div>
 
 
@@ -794,6 +794,57 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           mobileMenu?.classList.remove('open');
           document.body.style.overflow = '';
         });
+      });
+
+      // Booking form → opens user's mail app pre-filled
+      const bookingForm = document.querySelector('form[data-form-type="utility"]');
+      bookingForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const get = (id) => (document.getElementById(id) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement)?.value || '';
+
+        const orgName    = get('org_name');
+        const contactName= get('contact_name');
+        const email      = get('email');
+        const phone      = get('phone');
+        const eventDate  = get('event_date');
+        const location   = get('location');
+        const audience   = get('audience_type');
+        const pkg        = get('package');
+        const attendance = get('expected_attendance');
+        const travel     = get('travel_needs');
+        const message    = get('message');
+
+        const body = [
+          'Booking Request — Str8 Positive Thinking',
+          '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+          '',
+          'Organization:       ' + orgName,
+          'Contact Name:       ' + contactName,
+          'Email:              ' + email,
+          'Phone:              ' + phone,
+          '',
+          'Event Date:         ' + eventDate,
+          'Event Location:     ' + location,
+          'Audience Type:      ' + audience,
+          'Package:            ' + pkg,
+          'Expected Attendance:' + attendance,
+          '',
+          'Travel & Lodging:',
+          travel,
+          '',
+          'Additional Information:',
+          message,
+          '',
+          '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+          'Sent from str8positivethinking.com/booking'
+        ].join('\n');
+
+        const mailto = 'mailto:info@str8positivethinking.com'
+          + '?subject=' + encodeURIComponent('Booking Request: ' + orgName + ' — ' + eventDate)
+          + '&body='    + encodeURIComponent(body);
+
+        window.location.href = mailto;
+        setTimeout(() => { bookingForm.reset(); }, 1000);
       });
     });
   </script>
