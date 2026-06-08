@@ -2169,6 +2169,38 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
           document.body.style.overflow = '';
         });
       });
+
+      // Contact form → opens user's mail app pre-filled
+      const contactForm = document.getElementById('contactForm');
+      contactForm?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name    = (document.getElementById('name') as HTMLInputElement)?.value || '';
+        const email   = (document.getElementById('email') as HTMLInputElement)?.value || '';
+        const subject = (document.getElementById('subject') as HTMLInputElement)?.value || '';
+        const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || '';
+
+        const body = [
+          'Contact Form — Str8 Positive Thinking Website',
+          '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+          '',
+          'Name:    ' + name,
+          'Email:   ' + email,
+          'Subject: ' + subject,
+          '',
+          'Message:',
+          message,
+          '',
+          '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+          'Sent from str8positivethinking.com'
+        ].join('\n');
+
+        const mailto = 'mailto:info@str8positivethinking.com'
+          + '?subject=' + encodeURIComponent('Contact Form: ' + subject)
+          + '&body='    + encodeURIComponent(body);
+
+        window.location.href = mailto;
+        setTimeout(() => { contactForm.reset(); }, 1000);
+      });
     });
   </script>
 </body>
